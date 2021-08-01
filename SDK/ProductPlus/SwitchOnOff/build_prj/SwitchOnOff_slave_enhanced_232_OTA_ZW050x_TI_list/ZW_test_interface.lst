@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 1   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE ZW_TEST_INTERFACE
@@ -62,7 +62,7 @@ line level    source
   22      =1  typedef unsigned char uint8_t;
   23      =1  typedef unsigned short uint16_t;
   24      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 2   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 2   
 
   25      =1  /* These are needed to satisfy Yakindu*/
   26      =1  #ifndef __GNUC__
@@ -126,7 +126,7 @@ line level    source
   34      =1  #define _ZW_TYPEDEFS_H_
   35      =1  
   36      =1  #ifndef __C51__
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 3   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 3   
 
   44      =1  
   45      =1  /****************************************************************************/
@@ -190,7 +190,7 @@ line level    source
  103      =1  /* Remove memory specifier byte from generic pointer
  104      =1     See also: http://www.keil.com/forum/3443/ */
  105      =1  #ifdef __C51__
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 4   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 4   
 
  106      =1  #define STRIP_GENERIC_PTR(p) ((unsigned) (void *) (p))
  107      =1  /* Macros to test generic pointers for NULL-ness, even if they
@@ -254,7 +254,7 @@ line level    source
   36      =1  
   37      =1  /****************************************************************************/
   38      =1  /*                              INCLUDE FILES                               */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 5   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 5   
 
   39      =1  /****************************************************************************/
   40      =1  #include <ZW_typedefs.h>
@@ -318,7 +318,7 @@ line level    source
   67      =1  **  BYTE *nodeid pointer to RAM were the Node ID should be placed.
   68      =1  **--------------------------------------------------------------------------*/
   69      =1  #define ZW_MEMORY_GET_ID(homeid,nodeid)   MemoryGetID(homeid,nodeid)
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 6   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 6   
 
   70      =1  
   71      =1  /*============================   MemoryGetByte   ============================
@@ -382,7 +382,7 @@ line level    source
  129      =1  #define ZW_MEM_PUT_BUFFER_NO_CB(offset,buffer,length) ZW_MemoryPutBuffer(offset,buffer,length)
  130      =1  
  131      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 7   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 7   
 
  132      =1  /*===============================   ZW_EepromInit   ====================================
  133      =1  ** This function writes ZEROs in the entire EEPROM, then it write the homeID
@@ -446,7 +446,7 @@ line level    source
  191      =1  **  Side effects:
  192      =1  **  Note: API is not supported in 400 series slave and routing slave targets
  193      =1  **--------------------------------------------------------------------------*/
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 8   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 8   
 
  194      =1  extern void               /*RET Nothing          */
  195      =1  MemoryGetBuffer(
@@ -510,7 +510,7 @@ line level    source
  253      =1  
  254      =1  
  255      =1  /*=============================   ZW_memcmp   ===============================
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 9   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 9   
 
  256      =1  **    Compares length bytes of src and dest
  257      =1  **
@@ -574,7 +574,7 @@ line level    source
    5      =2   *             ##    ##  ##  ##  ##  ##      ##  ##  ##
    6      =2   *            ##  #  ######  ##  ##   ####   ##  ##   ####
    7      =2   *           ##  ##  ##      ##  ##      ##   #####      ##
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 10  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 10  
 
    8      =2   *          #######   ####   ##  ##  #####       ##  #####
    9      =2   *                                           #####
@@ -638,7 +638,7 @@ line level    source
  105      =1  #define ZW_UART_SEND_BYTE(bData)  ZW_UART1_tx_send_byte(bData)
  106      =1  #define ZW_UART_SEND_NUM(bData)   ZW_UART1_tx_send_num(bData)
  107      =1  #define ZW_UART_REC_STATUS        (ZW_UART1_rx_int_get())
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 11  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 11  
 
  108      =1  #define ZW_UART_REC_BYTE          (ZW_UART1_rx_data_wait_get())
  109      =1  #define ZW_UART_SEND_NL()         ZW_UART1_tx_send_nl()
@@ -702,7 +702,7 @@ line level    source
  167      =1  #define ZW_UART0_INT_ENABLE  ES0=1
  168      =1  
  169      =1  /*==============================   ZW_UART0_INT_DISABLE  =============================
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 12  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 12  
 
  170      =1  **  Disables UART0 interrupt
  171      =1  **
@@ -766,7 +766,7 @@ line level    source
  229      =1  void          /*RET Nothing */
  230      =1  ZW_UART_tx_send_str(
  231      =1    BYTE_P str); /* IN String pointer */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 13  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 13  
 
  232      =1  
  233      =1  /*=============================   ZW_UART_send_nl   =========================
@@ -830,7 +830,7 @@ line level    source
  291      =1  void
  292      =1  ZW_UART0_tx_data_set(
  293      =1    BYTE txByte);  /* IN a byte to written to the UART transmit register.*/
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 14  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 14  
 
  294      =1  
  295      =1  /*===============================   ZW_UART0_tx_send_byte   ========================
@@ -894,7 +894,7 @@ line level    source
  353      =1  /*===========================  ZW_UART0_tx_send_dec  ==========================
  354      =1  **  Converts a byte to a two-digit decimal ASCII representation,
  355      =1  **  and transmits it over UART0.
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 15  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 15  
 
  356      =1  **
  357      =1  **    Side effects:
@@ -958,7 +958,7 @@ line level    source
  415      =1  **  Side effects:
  416      =1  **--------------------------------------------------------------------------*/
  417      =1  void             /*RET Nothing */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 16  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 16  
 
  418      =1  ZW_UART1_init(
  419      =1    WORD bBaudRate,  /* IN  Baud rate / 100 (e.g. 96 => 9600baud/s, 1152 => 115200baud/s) */
@@ -1022,7 +1022,7 @@ line level    source
  477      =1  void
  478      =1  ZW_UART1_tx_data_set(
  479      =1    BYTE txByte);  /* IN a byte to written to the UART transmit register.*/
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 17  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 17  
 
  480      =1  
  481      =1  /*===============================   ZW_UART1_tx_send_byte   ========================
@@ -1086,7 +1086,7 @@ line level    source
  539      =1  
  540      =1  /*===========================  ZW_UART1_tx_send_num  ==========================
  541      =1  **  Converts a byte to a two-byte hexadecimal ASCII representation,
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 18  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 18  
 
  542      =1  **  and transmits it over UART1.
  543      =1  **
@@ -1150,7 +1150,7 @@ line level    source
  601      =1  **                    Disabled when set to 0x00 which is default after reset
  602      =1  **   Side effects:
  603      =1  **--------------------------------------------------------------------------*/
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 19  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 19  
 
  604      =1  void                    /*RET Nothing */
  605      =1  ZW_UART0_tx_dma_int_byte_count( BYTE bByteCount);   /*IN Number of tx'ed bytes */
@@ -1214,7 +1214,7 @@ line level    source
  663      =1  /*===============================   ZW_UART0_tx_dma_cancel  ========================
  664      =1  **  Cancels any ongoing DMA process and brings UART TX DMA to idle state
  665      =1  **
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 20  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 20  
 
  666      =1  **  Parameters: None
  667      =1  **
@@ -1278,7 +1278,7 @@ line level    source
  725      =1  BYTE                    /*RET status */
  726      =1  ZW_UART0_rx_dma_status(void); /*IN Nothing */
  727      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 21  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 21  
 
  728      =1  /*===============================   ZW_UART0_rx_dma_bytes_transferred  ========================
  729      =1  **  Returns the number of bytes that has been transferred to UART0 to XRAM for the ongoing DMA
@@ -1342,7 +1342,7 @@ line level    source
  787      =1  **--------------------------------------------------------------------------*/
  788      =1  void                    /*RET Nothing */
  789      =1  ZW_UART1_tx_dma_int_byte_count( BYTE bByteCount);   /*IN Number of tx'ed bytes */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 22  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 22  
 
  790      =1  
  791      =1  /*===============================   ZW_UART1_tx_dma_inter_byte_delay  ========================
@@ -1406,7 +1406,7 @@ line level    source
  849      =1  **
  850      =1  **  Parameters: None
  851      =1  **
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 23  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 23  
 
  852      =1  **   Side effects:
  853      =1  **--------------------------------------------------------------------------*/
@@ -1470,7 +1470,7 @@ line level    source
  911      =1  **
  912      =1  **  Parameters: None
  913      =1  **
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 24  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 24  
 
  914      =1  **   Side effects:
  915      =1  **--------------------------------------------------------------------------*/
@@ -1534,7 +1534,7 @@ line level    source
    1      =2  /*
    2      =2   * ZW_stdint.h
    3      =2   *
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 25  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 25  
 
    4      =2   * Define integer types by their conventional POSIX names [1].
    5      =2   * Note: This is a small subset of the spec, NOT a complete definition.
@@ -1598,7 +1598,7 @@ line level    source
   65      =1  
   66      =1  /**
   67      =1   * @brief Interrupt process signal to the Task Handler to run all task in pool
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 26  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 26  
 
   68      =1   * to check for new jobs.
   69      =1   */
@@ -1662,7 +1662,7 @@ line level    source
   21      =2   *
   22      =2   *---------------------------------------------------------------------------
   23      =2   *
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 27  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 27  
 
   24      =2   * Description: Module description
   25      =2   *
@@ -1726,7 +1726,7 @@ line level    source
   10      =1   * NOTICE: Using this module together with the key_driver.c in
   11      =1   * ApplicationUtilities on the ZDP03A development kit results in the S5
   12      =1   * not working since its pin is shared with UART0 TX.
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 28  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 28  
 
   13      =1   * @copyright Copyright (c) 2001-2017, Sigma Designs Inc., All Rights Reserved
   14      =1   */
@@ -1790,7 +1790,7 @@ line level    source
   27      =1   */
   28      =1  //@ [ZW_test_interface_allocate]
   29      =1  BOOL ZW_test_interface_allocate(
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 29  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 29  
 
   30      =1      char channel,
   31      =1      VOID_CALLBACKFUNC(pCallback)(char channel, char * pString));
@@ -1854,7 +1854,7 @@ line level    source
    6      =2   *
    7      =2   *---------------------------------------------------------------------------
    8      =2   *
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 30  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 30  
 
    9      =2   * Description: Z-Wave Transport Application layer interface
   10      =2   *
@@ -1918,7 +1918,7 @@ line level    source
   13      =4   *              Zensys A/S
   14      =4   *              Denmark
   15      =4   *
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 31  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 31  
 
   16      =4   *              All Rights Reserved
   17      =4   *
@@ -1982,7 +1982,7 @@ line level    source
   66      =3  #define SECURITY_KEY_S2_PUBLIC_CSA_DSK_LENGTH 4
   67      =3  
   68      =3  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 32  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 32  
 
   69      =3  /**
   70      =3   *  definitions for Security S2 inclusion Authentication
@@ -2046,7 +2046,7 @@ line level    source
  128      =3  *       are allready implemented in \ref ZW_TransportSecProtocol.c.
  129      =3  */
  130      =3  void
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 33  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 33  
 
  131      =3  ApplicationSecureCommandsSupported(
  132      =3      enum SECURITY_KEY eKey, /* IN Security Key to report on */
@@ -2110,7 +2110,7 @@ line level    source
  190      =3  **    This function is only to be called after a firmware update from an
  191      =3  **    application based upon an SDK prior to 6.70, as example 6.51, 6.60, or
  192      =3  **    6.61 to an application based upon SDK 6.70 or later.
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 34  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 34  
 
  193      =3  **
  194      =3  **    Note: This is only relevant for a node that was securely included in an
@@ -2174,7 +2174,7 @@ line level    source
   28      =3   * Last Changed By:  $Author: jbu $
   29      =3   * Revision:         $Revision: 26038 $
   30      =3   * Last Changed:     $Date: 2013-06-10 09:08:11 +0200 (ma, 10 jun 2013) $
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 35  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 35  
 
   31      =3   *
   32      =3   ****************************************************************************/
@@ -2238,7 +2238,7 @@ line level    source
   90      =3  **--------------------------------------------------------------------------*/
   91      =3  #define ZW_NODE_MASK_BITS_IN(pMask, bLength) ZW_NodeMaskBitsIn(pMask, bLength)
   92      =3  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 36  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 36  
 
   93      =3  /*==========================   ZW_NodeMaskNodeIn   ==========================
   94      =3  **    Check if a node is in a nodemask
@@ -2302,7 +2302,7 @@ line level    source
  152      =3  BYTE_P pMask,     /* IN   pointer to nodemask             */
  153      =3  BYTE bLength);     /* IN   length of nodemask              */
  154      =3  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 37  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 37  
 
  155      =3  /*==========================   ZW_NodeMaskNodeIn   ==========================
  156      =3  **    Check if a node is in a nodemask
@@ -2366,7 +2366,7 @@ line level    source
   63      =2  
   64      =2  /* Transmit frame option flag which are valid when sending explore frames  */
   65      =2  #define TRANSMIT_EXPLORE_OPTION_ACK         TRANSMIT_OPTION_ACK
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 38  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 38  
 
   66      =2  #define TRANSMIT_EXPLORE_OPTION_LOW_POWER   TRANSMIT_OPTION_LOW_POWER
   67      =2  
@@ -2430,7 +2430,7 @@ line level    source
  125      =2  #define NODE_BROADCAST              0xFF    /* broadcast */
  126      =2  #define ZW_TEST_NOT_A_NODEID        0x00    /* */
  127      =2  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 39  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 39  
 
  128      =2  /* Transmit complete codes */
  129      =2  #define TRANSMIT_COMPLETE_OK      0x00
@@ -2494,7 +2494,7 @@ line level    source
  194      =2  
  195      =2  /* Transport routing scheme state define definitions */
  196      =2  /* 1 = direct, 2 = ApplicationStaticRoute, 3 = responseRoute/lastworkingRoute, */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 40  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 40  
 
  197      =2  /* 4 = Next to LastWorkingRoute(controller), 5 = returnRoute/controllerAutoRoute, 6 = directResort and 7 =
              - explore */
@@ -2558,7 +2558,7 @@ line level    source
  255      =2  * This is done by waiting a little to see if the node will
  256      =2  * respond nonce report to the encrypted message. If the node
  257      =2  * does respond with a nonce report then the S2_send_data
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 41  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 41  
 
  258      =2  * call will automatically cause the system to re-sync the node,
  259      =2  * and deliver the message
@@ -2622,7 +2622,7 @@ line level    source
  317      =2  **      return routes.
  318      =2  **      This list MUST not be altered by the Application
  319      =2  **
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 42  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 42  
 
  320      =2  **--------------------------------------------------------------------------*/
  321      =2  extern BYTE ZW_RouteDestinations[ZW_MAX_CACHED_RETURN_ROUTE_DESTINATIONS];
@@ -2686,7 +2686,7 @@ line level    source
  468      =2  **
  469      =2  **--------------------------------------------------------------------------*/
  470      =2  #define ZW_SEND_CONST() ZW_SendConst(TRUE, 1, ZW_RF_TEST_SIGNAL_CARRIER)
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 43  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 43  
 
  471      =2  
  472      =2  
@@ -2750,7 +2750,7 @@ line level    source
  559      =2  
  560      =2  #if defined(ZW_CONTROLLER) && !defined(ZW_CONTROLLER_BRIDGE) || (defined(ZW_SLAVE) && !defined(ZW_SLAVE_RO
              -UTING) && !defined(ZW_SLAVE_ENHANCED_232))
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 44  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 44  
 
  594      =2  
  595      =2  #ifdef ZW_CONTROLLER_BRIDGE
@@ -2814,7 +2814,7 @@ line level    source
  711      =2  /*===============================   ZW_SendDataEx   ===========================
  712      =2  **    Transmit data buffer to a single ZW-node or all ZW-nodes (broadcast).
  713      =2  **
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 45  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 45  
 
  714      =2  **  This supersedes the old ZW_SendData and adds support for secure
  715      =2  **  transmissions.
@@ -2878,7 +2878,7 @@ line level    source
  784      =2   * \param commandClass    command class to query for version.
  785      =2   *
  786      =2   */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 46  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 46  
 
  787      =2  BYTE                                  /*RET Version of supplied command class */
  788      =2  ZW_Transport_CommandClassVersionGet(
@@ -2942,7 +2942,7 @@ line level    source
   76      =1  /*=============================   GetMyNodeID  ===============================
   77      =1  **
   78      =1  **        Get the device node ID
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 47  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 47  
 
   79      =1  **  Side effects: None
   80      =1  **
@@ -3006,7 +3006,7 @@ line level    source
   90   1        static BOOL fIsInitialized = FALSE;
   91   1        ZW_DEBUG_TEST_INTERFACE_SEND_NL(); ZW_DEBUG_TEST_INTERFACE_SEND_STR("init_once"); ZW_DEBUG_TEST_INTERFAC
              -E_SEND_NL();
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 48  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 48  
 
   92   1        if (FALSE == fIsInitialized)
   93   1        {
@@ -3070,7 +3070,7 @@ line level    source
  151   1      
  152   1        if ('\r' == buffer[dataLength - 1])
  153   1        {
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 49  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 49  
 
  154   2          BOOL channel_status = FALSE;
  155   2          ZW_DEBUG_TEST_INTERFACE_SEND_NL();
@@ -3134,7 +3134,7 @@ line level    source
  213   3            *pIndex = count;
  214   3            ZW_DEBUG_TEST_INTERFACE_SEND_STR("TI INDEX NEW");
  215   3            return INDEX_CHANNEL_NEW;
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 50  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 50  
 
  216   3          }
  217   2        }
@@ -3143,7 +3143,7 @@ line level    source
  220   1        ZW_DEBUG_TEST_INTERFACE_SEND_NL(); ZW_DEBUG_TEST_INTERFACE_SEND_STR("TI INDEX FULL");
  221   1        return INDEX_CHANNEL_FULL;
  222   1      }
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 51  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 51  
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -3207,7 +3207,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                  R     MOV     R2,#HIGH channel_index
                  R     MOV     R1,#LOW channel_index
                  R     MOV     DPTR,#channel
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 52  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 52  
 
                        MOVX    A,@DPTR
                        MOV     R5,A
@@ -3271,7 +3271,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                        MOV     R3,#01H
                  R     MOV     R2,#HIGH dataLength
                  R     MOV     R1,#LOW dataLength
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 53  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 53  
 
                  E     MOV     DPTR,#?_ZW_test_interface_driver_getData?BYTE+03H
                  E     CALL    ?C?PSTXDATA
@@ -3335,7 +3335,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                        MOVX    A,@DPTR
                        MOV     R4,A
                        INC     DPTR
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 54  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 54  
 
                        MOVX    A,@DPTR
                        ORL     A,R4
@@ -3399,7 +3399,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                  R     MOV     DPTR,#i
                        MOVX    A,@DPTR
                        MOV     R7,A
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 55  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 55  
 
                        CLR     C
                        SUBB    A,#02H
@@ -3463,7 +3463,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                        CLR     A
                        MOV     R7,A
              ?C0016:
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 56  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 56  
 
                                            ; SOURCE LINE # 203
                                            ; SOURCE LINE # 204
@@ -3514,7 +3514,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                        RET     
              ; FUNCTION _get_index_from_channel (END)
 
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 57  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 57  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -3577,7 +3577,7 @@ e_application_security_event_t . . . .  TYPEDEF  -----  U_CHAR   -----  1
 _TaskAdd . . . . . . . . . . . . . . .  EXTERN   CODE   PROC     -----  -----
 INDEX_CHANNEL_NEW. . . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
 XDATA4K_P. . . . . . . . . . . . . . .  TYPEDEF  -----  PTR      -----  3
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 58  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 58  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -3640,7 +3640,7 @@ S_ROUTE_LINK . . . . . . . . . . . . .  TYPEDEF  -----  STRUCT   -----  2
 ROUTINGSCHEME_ROUTE. . . . . . . . . .  E_CONST  -----  U_CHAR   -----  1
 ROUTINGSCHEME_CACHED_ROUTE_SR. . . . .  E_CONST  -----  U_CHAR   -----  1
 SECURITY_KEY_S2_AUTHENTICATED. . . . .  E_CONST  -----  U_CHAR   -----  1
-C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/01/2021 16:36:54 PAGE 59  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE                                                     08/02/2021 03:27:29 PAGE 59  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====

@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 1   
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE ZW_STRING
@@ -62,7 +62,7 @@ line level    source
    8      =2   *          #######   ####   ##  ##  #####       ##  #####
    9      =2   *                                           #####
   10      =2   *          Products that speak Z-Wave work together better
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 2   
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 2   
 
   11      =2   *
   12      =2   *              Copyright (c) 2008
@@ -126,7 +126,7 @@ line level    source
   77      =2  typedef WORD * WORD_P;
   78      =2  typedef DWORD * DWORD_P;
   79      =2  
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 3   
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 3   
 
   80      =2  typedef struct
   81      =2  {
@@ -190,7 +190,7 @@ line level    source
   24      =1  
   25      =1  /****************************************************************************/
   26      =1  /*                           EXPORTED FUNCTIONS                             */
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 4   
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 4   
 
   27      =1  /****************************************************************************/
   28      =1  
@@ -254,7 +254,7 @@ line level    source
   22      =2   *---------------------------------------------------------------------------
   23      =2   *
   24      =2   * Description: Module description
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 5   
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 5   
 
   25      =2   *
   26      =2   * Author:   Ivar Jeppesen
@@ -318,7 +318,7 @@ line level    source
  122      =1  #define UART_RX_DMA_SWITCH_EOR       0x01
  123      =1  
  124      =1  #define UART_TX_DMA_STATUS_SLOW_XRAM 0x80
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 6   
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 6   
 
  125      =1  #define UART_TX_DMA_STATUS_RUNNING   0x10
  126      =1  
@@ -382,7 +382,7 @@ line level    source
  184      =1    BYTE bData);  /* IN a byte to written to the UART transmit register.*/
  185      =1  
  186      =1  /*===========================  ZW_UART_tx_send_dec  ==========================
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 7   
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 7   
 
  187      =1  **  Converts a byte to a two-digit decimal ASCII representation,
  188      =1  **  and transmits it over UART0.
@@ -446,7 +446,7 @@ line level    source
  246      =1  **--------------------------------------------------------------------------*/
  247      =1  
  248      =1  BYTE    /* RET zero (0x00): UART0 tx is idle,
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 8   
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 8   
 
  249      =1           *     non-zero:  : UART0 tx is active     */
  250      =1  ZW_UART_tx_active_get(void);
@@ -510,7 +510,7 @@ line level    source
  308      =1  **--------------------------------------------------------------------------*/
  309      =1  void
  310      =1  ZW_UART0_rx_enable(
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 9   
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 9   
 
  311      =1    BYTE bState); /* IN  TRUE: enables UART0 rx function, FALSE: disables UART0 rx function */
  312      =1  
@@ -574,7 +574,7 @@ line level    source
  370      =1  **--------------------------------------------------------------------------*/
  371      =1  #define ZW_UART0_tx_send_num ZW_UART0_tx_send_hex
  372      =1  
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 10  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 10  
 
  373      =1  void            /*RET Nothing */
  374      =1  ZW_UART0_tx_send_hex(
@@ -638,7 +638,7 @@ line level    source
  432      =1  **  Disables UART0 interrupt
  433      =1  **
  434      =1  **    Side effects:
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 11  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 11  
 
  435      =1  **--------------------------------------------------------------------------*/
  436      =1  
@@ -702,7 +702,7 @@ line level    source
  494      =1  **--------------------------------------------------------------------------*/
  495      =1  void
  496      =1  ZW_UART1_rx_enable(
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 12  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 12  
 
  497      =1    BYTE bState); /* IN  TRUE: enables UART1 rx function, FALSE: disables UART1 rx function */
  498      =1  
@@ -766,7 +766,7 @@ line level    source
  556      =1  **
  557      =1  **    Side effects:
  558      =1  **
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 13  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 13  
 
  559      =1  **--------------------------------------------------------------------------*/
  560      =1  void            /*RET Nothing */
@@ -830,7 +830,7 @@ line level    source
  618      =1  void                    /*RET Nothing */
  619      =1  ZW_UART0_tx_dma_inter_byte_delay( BYTE bDelay);   /*IN inter byte delay */
  620      =1  
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 14  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 14  
 
  621      =1  /*===============================   ZW_UART0_tx_dma_data  ========================
  622      =1  **  Set buffer address and length and then start UART0 DMA
@@ -894,7 +894,7 @@ line level    source
  680      =1  **     bBufLength: IN length of UART0 RX Buffer - must be greater than 0
  681      =1  **     bBitMask:   IN bit mask contains the setting of the Rx DMA
  682      =1  **                      UART_RX_DMA_LOD_INT_EN    Enable Loss Of Data interrupt
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 15  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 15  
 
  683      =1  **                      UART_RX_DMA_SWITCH_COUNT  Switch buffer when byte count is reached
  684      =1  **                      UART_RX_DMA_SWITCH_FULL   Switch buffer when buffer full
@@ -958,7 +958,7 @@ line level    source
  742      =1  **  Parameters: None
  743      =1  **
  744      =1  **   Side effects:
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 16  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 16  
 
  745      =1  **--------------------------------------------------------------------------*/
  746      =1  void                    /*RET nothing */
@@ -1022,7 +1022,7 @@ line level    source
  804      =1  
  805      =1  /*===============================   ZW_UART1_tx_dma_data  ========================
  806      =1  **  Set buffer address and length and then start UART1 DMA
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 17  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 17  
 
  807      =1  **  Parameters
  808      =1  **
@@ -1086,7 +1086,7 @@ line level    source
  866      =1  **                      UART_RX_DMA_SWITCH_FULL   Switch buffer when buffer full
  867      =1  **
  868      =1  **    Side effects:
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 18  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 18  
 
  869      =1  **       Discards any ongoing UART RX DMA process
  870      =1  **       Clears status information
@@ -1150,7 +1150,7 @@ line level    source
  928      =1  
  929      =1  
  930      =1  /*=============================   ZW_UART1_rx_dma_eor_set =======================
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 19  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 19  
 
  931      =1  **
  932      =1  **  Sets the End of Record (EoR) character. The EoR function makes it possible
@@ -1205,7 +1205,7 @@ line level    source
   47   2        }
   48   1        return(s - str);
   49   1      }
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 20  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 20  
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -1246,7 +1246,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                        RET     
              ; FUNCTION _ZW_strlen (END)
 
-C51 COMPILER V9.54   ZW_STRING                                                             08/01/2021 16:36:25 PAGE 21  
+C51 COMPILER V9.54   ZW_STRING                                                             08/02/2021 03:26:44 PAGE 21  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====

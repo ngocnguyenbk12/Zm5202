@@ -1,7 +1,7 @@
 Fixbootcrc - Application start address 0x1800 (0)
 applicationFirmwareDescriptorOffset 0x7FB8
-0x73C5 CRC - Bank1  - Start 0x08000, Length 0x7F24
-0x7A51 CRC - Bank2  - Start 0x10000, Length 0x5D0A
-0x40BC CRC - Bank3  - Start 0x18000, Length 0x7034
-0xFCF0 CRC - Common - Start 0x01800, Length 0x67C4
+0x7928 CRC - Bank1  - Start 0x08000, Length 0x7EFF
+0x6746 CRC - Bank2  - Start 0x10000, Length 0x5DCA
+0x57A4 CRC - Bank3  - Start 0x18000, Length 0x7016
+0xBD47 CRC - Common - Start 0x01800, Length 0x67C4
 ApplicationCommonLength 0x7FC6

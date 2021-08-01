@@ -1,4 +1,4 @@
-AX51 MACRO ASSEMBLER  ZW_APP_VERSION                                                        08/01/21 16:36:58 PAGE     1
+AX51 MACRO ASSEMBLER  ZW_APP_VERSION                                                        08/02/21 03:27:34 PAGE     1
 
 
 MACRO ASSEMBLER AX51 V3.13.0.0
@@ -65,7 +65,7 @@ LOC    OBJ             LINE     SOURCE
                          49     ; Make APP_VERSION and APP_REVISION public, so that Z-Wave protocol code can access it.
                          50     ; Use it from C-code like this:
                          51     ; extern unsigned char _APP_VERSION_;
-AX51 MACRO ASSEMBLER  ZW_APP_VERSION                                                        08/01/21 16:36:58 PAGE     2
+AX51 MACRO ASSEMBLER  ZW_APP_VERSION                                                        08/02/21 03:27:34 PAGE     2
 
                          52     ; WORD_variable = (WORD)&_APP_VERSION_);
                          53     
@@ -78,7 +78,7 @@ LOC    OBJ             LINE     SOURCE
  0405                    60     _APP_VERSION_           EQU     (4 << 8) | 5
                          61     
                          62             END
-AX51 MACRO ASSEMBLER  ZW_APP_VERSION                                                        08/01/21 16:36:58 PAGE     3
+AX51 MACRO ASSEMBLER  ZW_APP_VERSION                                                        08/02/21 03:27:34 PAGE     3
 
 SYMBOL TABLE LISTING
 ------ ----- -------

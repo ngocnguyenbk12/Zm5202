@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 1   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE ZW_TEST_INTERFACE_DRIVER
@@ -62,7 +62,7 @@ line level    source
   43           *
   44           *  Modified for 8051 by Anders Esbensen, Sigma Designs.
   45           *
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 2   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 2   
 
   46           *  This code has been extensively tested on the Fujitsu SPARClite demo board.
   47           *
@@ -126,7 +126,7 @@ line level    source
    9      =1  
   10      =1  #ifdef LIBFILE
   13      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 3   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 3   
 
   14      =1  /*
   15      =1   * The following two definitions (ZW_VERSION_MAJOR, ZW_VERSION_MINOR & ZW_VERSION_PATCH) specifies
@@ -190,7 +190,7 @@ line level    source
    5      =1   *             ##    ##  ##  ##  ##  ##      ##  ##  ##
    6      =1   *            ##  #  ######  ##  ##   ####   ##  ##   ####
    7      =1   *           ##  ##  ##      ##  ##      ##   #####      ##
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 4   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 4   
 
    8      =1   *          #######   ####   ##  ##  #####       ##  #####
    9      =1   *                                           #####
@@ -254,7 +254,7 @@ line level    source
   67      =1  sbit P0b2  = P0^2;
   68      =1  sbit P0b3  = P0^3;
   69      =1  sbit P0b4  = P0^4;
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 5   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 5   
 
   70      =1  sbit P0b5  = P0^5;
   71      =1  sbit P0b6  = P0^6;
@@ -318,7 +318,7 @@ line level    source
  129      =1  sbit CY    = PSW^7;
  130      =1  sbit AC    = PSW^6;
  131      =1  sbit F0    = PSW^5;
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 6   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 6   
 
  132      =1  sbit RS1   = PSW^4;
  133      =1  sbit RS0   = PSW^3;
@@ -382,7 +382,7 @@ line level    source
  191      =1  #define P3_H_BITS                      0xF0
  192      =1  #define P3_RESERVED_BITS               0x0C
  193      =1  #define P3_L_BITS                      0x03
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 7   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 7   
 
  194      =1  #define SFRPAGE_RESERVED_BITS          0xFC
  195      =1  #define SFRPAGE_BITS                   0x03
@@ -446,7 +446,7 @@ line level    source
    5      =1   * All Rights Reserved
    6      =1   *
    7      =1   *---------------------------------------------------------------------------
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 8   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 8   
 
    8      =1   *
    9      =1   * Description: In/Out definitions Z-Wave Single Chips
@@ -510,7 +510,7 @@ line level    source
   49      =2  /****************************************************************************/
   50      =2  /*                     EXPORTED TYPES and DEFINITIONS                       */
   51      =2  /****************************************************************************/
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 9   
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 9   
 
   52      =2  #ifndef BYTE
   53      =2  typedef unsigned char   BYTE;
@@ -574,7 +574,7 @@ line level    source
  111      =2  #else
  115      =2  
  116      =2  #define UNUSED(x) x = x; /* Hack to silence warning C280 Unreferenced local variable */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 10  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 10  
 
  117      =2  #define UNUSED_CONST(x) if(x) ; /* Hack to silence warning C280 Unreferenced const variable */
  118      =2  
@@ -638,7 +638,7 @@ line level    source
   69      =1  #define PIN_GET(pin)  (pin##Port & (1<<pin))
   70      =1  
   71      =1  /* Set output pin to 1:
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 11  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 11  
 
   72      =1   *    pin     - Z-Wave pin name
   73      =1   */
@@ -702,7 +702,7 @@ line level    source
  131      =1  #define P02SHADOW        P0Shadow
  132      =1  #define P02DIR           P0DIR
  133      =1  #define P02SHADOWDIR     P0ShadowDIR
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 12  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 12  
 
  134      =1  #define P02DIR_PAGE      P0DIR_PAGE
  135      =1  #define P02              2
@@ -766,7 +766,7 @@ line level    source
  193      =1  #define P13Port          P1
  194      =1  #define P13SHADOW        P1Shadow
  195      =1  #define P13DIR           P1DIR
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 13  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 13  
 
  196      =1  #define P13SHADOWDIR     P1ShadowDIR
  197      =1  #define P13DIR_PAGE      P1DIR_PAGE
@@ -830,7 +830,7 @@ line level    source
  255      =1  #define P23              3
  256      =1  
  257      =1  #define P24Port          P2
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 14  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 14  
 
  258      =1  #define P24SHADOW        P2Shadow
  259      =1  #define P24DIR           P2DIR
@@ -894,7 +894,7 @@ line level    source
  317      =1  #define P36DIR_PAGE      P3DIR_PAGE
  318      =1  #define P36              6
  319      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 15  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 15  
 
  320      =1  #define P37Port          P3
  321      =1  #define P37SHADOW        P3Shadow
@@ -958,7 +958,7 @@ line level    source
  379      =1  #define KP_OUT1DIR_PAGE      P0DIR_PAGE
  380      =1  #define KP_OUT1              1
  381      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 16  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 16  
 
  382      =1  #define KP_OUT2Port          P0
  383      =1  #define KP_OUT2SHADOW        P0Shadow
@@ -1022,7 +1022,7 @@ line level    source
  441      =1  #define KP_OUT10SHADOWDIR     P3ShadowDIR
  442      =1  #define KP_OUT10DIR_PAGE      P3DIR_PAGE
  443      =1  #define KP_OUT10              5
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 17  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 17  
 
  444      =1  
  445      =1  #define KP_OUT11Port          P3
@@ -1086,7 +1086,7 @@ line level    source
  503      =1  #define KP_IN3DIR           P1DIR
  504      =1  #define KP_IN3SHADOWDIR     P1ShadowDIR
  505      =1  #define KP_IN3DIR_PAGE      P1DIR_PAGE
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 18  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 18  
 
  506      =1  #define KP_IN3              3
  507      =1  
@@ -1150,7 +1150,7 @@ line level    source
  565      =1  #define INT4SHADOW        P1Shadow
  566      =1  #define INT4DIR           P1DIR
  567      =1  #define INT4SHADOWDIR     P1ShadowDIR
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 19  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 19  
 
  568      =1  #define INT4DIR_PAGE      P1DIR_PAGE
  569      =1  #define INT4              4
@@ -1214,7 +1214,7 @@ line level    source
  627      =1  #define ISP_MISOPort          P2
  628      =1  #define ISP_MISOSHADOW        P2Shadow
  629      =1  #define ISP_MISODIR           P2DIR
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 20  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 20  
 
  630      =1  #define ISP_MISOSHADOWDIR     P2ShadowDIR
  631      =1  #define ISP_MISODIR_PAGE      P2DIR_PAGE
@@ -1278,7 +1278,7 @@ line level    source
  689      =1  
  690      =1  #define ADC3Port          P3
  691      =1  #define ADC3SHADOW        P3Shadow
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 21  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 21  
 
  692      =1  #define ADC3DIR           P3DIR
  693      =1  #define ADC3SHADOWDIR     P3ShadowDIR
@@ -1342,7 +1342,7 @@ line level    source
  751      =1  #define FIREDIR_PAGE      P3DIR_PAGE
  752      =1  #define FIRE              6
  753      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 22  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 22  
 
  754      =1  #define TRIACPort          P3
  755      =1  #define TRIACSHADOW        P3Shadow
@@ -1406,7 +1406,7 @@ line level    source
   27      =1  /****************************************************************************/
   28      =1  
   29      =1  /* Evaluation board LEDs */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 23  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 23  
 
   30      =1  
   31      =1  /* Turn LED on/off
@@ -1470,7 +1470,7 @@ line level    source
    1      =1  /***************************************************************************
    2      =1  *
    3      =1  * Copyright (c) 2001-2012
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 24  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 24  
 
    4      =1  * Sigma Designs, Inc.
    5      =1  * All Rights Reserved
@@ -1534,7 +1534,7 @@ line level    source
   30      =1  
   31      =1  /* Macroes for debug output */
   32      =1  #define ZW_DEBUG_BAUD_RATE    1152
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 25  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 25  
 
   33      =1  
   34      =1  #ifdef ZW_DEBUG
@@ -1598,7 +1598,7 @@ line level    source
  138      =1  **  flags, and sets the specified baudrate.
  139      =1  **
  140      =1  **  Side effects:
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 26  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 26  
 
  141      =1  **--------------------------------------------------------------------------*/
  142      =1  void             /*RET Nothing */
@@ -1662,7 +1662,7 @@ line level    source
  200      =1  **
  201      =1  **    Side effects:
  202      =1  **
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 27  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 27  
 
  203      =1  **--------------------------------------------------------------------------*/
  204      =1  #define ZW_UART_tx_send_num ZW_UART_tx_send_hex
@@ -1726,7 +1726,7 @@ line level    source
  262      =1  **  Clear the UART0 Tx interrupt flag
  263      =1  **
  264      =1  **    Side effects:
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 28  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 28  
 
  265      =1  **--------------------------------------------------------------------------*/
  266      =1  void
@@ -1790,7 +1790,7 @@ line level    source
  324      =1  **  This function checks if the UART0 has sent a byte.
  325      =1  **
  326      =1  **    Side effects:
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 29  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 29  
 
  327      =1  **--------------------------------------------------------------------------*/
  328      =1  
@@ -1854,7 +1854,7 @@ line level    source
  386      =1  ZW_UART0_tx_send_w_num(
  387      =1    WORD bData);   /* IN data to send */
  388      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 30  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 30  
 
  389      =1  /*============================   ZW_UART0_tx_send_str   ========================
  390      =1  **  Transmit a null terminated string over UART0.
@@ -1918,7 +1918,7 @@ line level    source
  448      =1  **  Clear the UART1 Tx interrupt flag
  449      =1  **
  450      =1  **    Side effects:
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 31  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 31  
 
  451      =1  **--------------------------------------------------------------------------*/
  452      =1  void
@@ -1982,7 +1982,7 @@ line level    source
  510      =1  **  This function checks if the UART1 has sent a byte.
  511      =1  **
  512      =1  **    Side effects:
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 32  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 32  
 
  513      =1  **--------------------------------------------------------------------------*/
  514      =1  
@@ -2046,7 +2046,7 @@ line level    source
  572      =1  ZW_UART1_tx_send_str(BYTE_P str); /* IN String pointer */
  573      =1  
  574      =1  /*=============================   ZW_UART1_send_nl   =========================
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 33  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 33  
 
  575      =1  **  Transmit CR + LF over UART1.
  576      =1  **
@@ -2110,7 +2110,7 @@ line level    source
  634      =1  
  635      =1  /*===============================   ZW_UART0_tx_dma_status  ========================
  636      =1  **  If the UART0 DMA process is ongoing this function Returns the status of this ongoing
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 34  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 34  
 
  637      =1  **  process. Returns the status of the latest UART0 DMA process if the DMA has stopped.
  638      =1  **
@@ -2174,7 +2174,7 @@ line level    source
  696      =1  /*===============================   ZW_UART0_rx_dma_int_byte_count  ===============================
  697      =1  **  Set interrupt rx byte count. A value of 0x00 means disabled
  698      =1  **
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 35  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 35  
 
  699      =1  **   bByteCount: IN Interrupt is issued when this number of bytes has been DMA'ed from the UART
  700      =1  **                  Disabled when set to 0x00
@@ -2238,7 +2238,7 @@ line level    source
  758      =1  **   Side effects:
  759      =1  **--------------------------------------------------------------------------*/
  760      =1  void                    /*RET nothing */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 36  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 36  
 
  761      =1  ZW_UART0_rx_dma_eor_set(BYTE bChar);  /*IN EoR character */
  762      =1  
@@ -2302,7 +2302,7 @@ line level    source
  820      =1  **  If the UART1 DMA process is ongoing this function Returns the status of this ongoing
  821      =1  **  process. Returns the status of the latest UART1 DMA process if the DMA has stopped.
  822      =1  **
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 37  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 37  
 
  823      =1  **  Returned values:
  824      =1  **       UART_TX_DMA_STATUS_SLOW_XRAM: DMA can not keep up with configured inter byte
@@ -2366,7 +2366,7 @@ line level    source
  882      =1  **    Side effects:
  883      =1  **-------------------------------------------------------------------------------------*/
  884      =1  void                    /*RET Nothing */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 38  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 38  
 
  885      =1  ZW_UART1_rx_dma_int_byte_count(BYTE bByteCount); /*IN */
  886      =1  
@@ -2430,7 +2430,7 @@ line level    source
  944      =1  /*=====================   ZW_UART1_rx_dma_byte_count_enable  =====================
  945      =1  **
  946      =1  **  Enables or disabled the function switch buffer when a certain byte count is
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 39  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 39  
 
  947      =1  **  reached
  948      =1  **
@@ -2494,7 +2494,7 @@ line level    source
   40      =2  #define true (1)
   41      =2  #define false (0)
   42      =2  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 40  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 40  
 
   43      =2  #endif /*#ifndef _STDINT_H*/
   44      =2  
@@ -2558,7 +2558,7 @@ line level    source
   63      =1   * @param[in] pQueue Pointer to a queue.
   64      =1   * @return Number of queue elements.
   65      =1   */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 41  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 41  
 
   66      =1  uint8_t ZW_util_queue_GetItemCount(QUEUE_T * pQueue);
   67      =1  
@@ -2622,7 +2622,7 @@ line level    source
   16      =2   *              All Rights Reserved
   17      =2   *
   18      =2   *    This source file is subject to the terms and conditions of the
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 42  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 42  
 
   19      =2   *    Zensys Software License Agreement which restricts the manner
   20      =2   *    in which it may be used.
@@ -2686,7 +2686,7 @@ line level    source
   87      =1  **--------------------------------------------------------------------------*/
   88      =1  #define ZW_MEM_PUT_BYTE(offset,data) MemoryPutByte(offset,data)
   89      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 43  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 43  
 
   90      =1  /*============================   MemoryGetBuffer   =============================
   91      =1  **    Read number of bytes from the EEPROM to a RAM buffer
@@ -2750,7 +2750,7 @@ line level    source
  149      =1  
  150      =1  /****************************************************************************/
  151      =1  /*                           LOW LEVEL EXPORTED FUNCTIONS                   */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 44  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 44  
 
  152      =1  /****************************************************************************/
  153      =1  
@@ -2814,7 +2814,7 @@ line level    source
  211      =1    WORD  length,           /*IN   Number of bytes to copy   */
  212      =1    VOID_CALLBACKFUNC(func)( void) );  /*IN   Buffer write completed function pointer */
  213      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 45  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 45  
 
  214      =1  
  215      =1  /*==========================   ZW_MemoryPutBuffer   ==========================
@@ -2878,7 +2878,7 @@ line level    source
  273      =1    BYTE length, /* IN Number of bytes to set */
  274      =1    BYTE *dst);  /* IN Pointer to buffer to set/fill */
  275      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 46  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 46  
 
  276      =1  
  277      =1  #ifdef NVM_IS_EEPROM
@@ -2942,7 +2942,7 @@ line level    source
   17      =1   * DMA FUN
   18      =1   */
   19      =1  #define DMA_BUFFER_SIZE (64)
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 47  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 47  
 
   20      =1  #define DMA_BUFFER_SIZE_SINGLE (DMA_BUFFER_SIZE / 2)
   21      =1  /*
@@ -3006,7 +3006,7 @@ line level    source
   11      =2   */
   12      =2  #ifndef ZW_STDINT_H_
   15      =1  
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 48  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 48  
 
   16      =1  /****************************************************************************/
   17      =1  /*                     EXPORTED TYPES and DEFINITIONS                       */
@@ -3070,7 +3070,7 @@ line level    source
   75      =1   * TRUE if one or more task has job.
   76      =1   */
   77      =1  BOOL TaskApplicationPoll(void);
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 49  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 49  
 
   78      =1  
   79      =1  
@@ -3134,7 +3134,7 @@ line level    source
  165           * DMA FUN OVER
  166           */
  167          
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 50  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 50  
 
  168          /***************************  ASSEMBLY CODE MACROS *************************/
  169          /*                     */
@@ -3198,7 +3198,7 @@ line level    source
  226   3            {
  227   4              *pLength = byteCount + 1;
  228   4              break;
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 51  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 51  
 
  229   4            }
  230   3          }
@@ -3212,7 +3212,7 @@ line level    source
  238   1      }
  239          
  240          #endif  /* ZW_TEST_INTERFACE_DRIVER */
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 52  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 52  
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -3276,7 +3276,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 201
                                            ; SOURCE LINE # 203
                        PUSH    SFRPAGE
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 53  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 53  
 
                                            ; SOURCE LINE # 204
                  E     CALL    ZW_UART0_rx_int_get
@@ -3340,7 +3340,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ?C0007:
                  R     MOV     DPTR,#byteCount
                        MOVX    A,@DPTR
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 54  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 54  
 
                        MOV     R7,A
                        CLR     C
@@ -3404,7 +3404,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 235
              ?C0006:
                                            ; SOURCE LINE # 236
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 55  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 55  
 
                        SETB    ES0
                                            ; SOURCE LINE # 237
@@ -3414,7 +3414,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                        RET     
              ; FUNCTION _ZW_test_interface_driver_getData (END)
 
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 56  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 56  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -3477,7 +3477,7 @@ P2b7 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A7H  1
 P3b7 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
 IE_1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E8H  1
 SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 57  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 57  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -3540,7 +3540,7 @@ PT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BBH  1
 RS1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D4H  1
 TR0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008CH  1
 TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
-C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/01/2021 16:36:57 PAGE 58  
+C51 COMPILER V9.54   ZW_TEST_INTERFACE_DRIVER                                              08/02/2021 03:27:34 PAGE 58  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====

@@ -26,14 +26,17 @@ Build target 'SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI'
 User command #1: E:/SDK/Tools/Make/make  --no-print-directory -- CHIP=ZW050x SENSOR_TYPE=NON_BATT RF=US COUNTRY=US LIB=slave_enhanced_232 TEST_INTERFACE=YES BOOTLOADER_ENABLED=1  BOOT=BOOTLOADER_ENABLED FREQUENCY=US UVISIONPREBUILD=1 BUILDDIR=build_prj ZW0x0x
 make[1]: Nothing to be done for `prerequisites'.
 compiling SwitchOnOff.c...
-SwitchOnOff.c(324): warning C259: 'parameter 1': different enumeration types
-SwitchOnOff.c(325): warning C259: 'parameter 1': different enumeration types
-SwitchOnOff.c(328): warning C259: 'parameter 1': different enumeration types
-SwitchOnOff.c(329): warning C259: 'parameter 1': different enumeration types
-SwitchOnOff.c(405): warning C259: 'parameter 1': different enumeration types
-SwitchOnOff.c(410): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(411): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(412): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(413): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(414): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(417): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(501): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(1305): warning C173: missing return-expression
+SwitchOnOff.c(1306): warning C173: missing return-expression
+SwitchOnOff.c(1306): warning C290: missing return value
 linking...
-Program Size: data=242.7 xdata=17199 const=805 code=107998
+Program Size: data=242.7 xdata=17597 const=815 code=108247
 creating hex file from ".\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI_Rels\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.aof"...
 User command #1: E:/SDK/Tools/Make/make  --no-print-directory -- CHIP=ZW050x SENSOR_TYPE=NON_BATT RF=US COUNTRY=US LIB=slave_enhanced_232 TEST_INTERFACE=YES BOOTLOADER_ENABLED=1  BOOT=BOOTLOADER_ENABLED FREQUENCY=US UVISIONPOSTBUILD=1 BUILDDIR=build_prj ZW0x0x
 make[1]: Nothing to be done for `prerequisites'.
@@ -43,15 +46,15 @@ COPYRIGHT KEIL ELEKTRONIK GmbH 2000 - 2015
 GENERATING INTEL H386 FILE: .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota
 Fixbootcrc - Application start address 0x1800 (0)
 applicationFirmwareDescriptorOffset 0x7FB8
-0x73C5 CRC - Bank1  - Start 0x08000, Length 0x7F24
-0x7A51 CRC - Bank2  - Start 0x10000, Length 0x5D0A
-0x40BC CRC - Bank3  - Start 0x18000, Length 0x7034
-0xFCF0 CRC - Common - Start 0x01800, Length 0x67C4
+0x7928 CRC - Bank1  - Start 0x08000, Length 0x7EFF
+0x6746 CRC - Bank2  - Start 0x10000, Length 0x5DCA
+0x57A4 CRC - Bank3  - Start 0x18000, Length 0x7016
+0xBD47 CRC - Common - Start 0x01800, Length 0x67C4
 ApplicationCommonLength 0x7FC6
 E:\\SDK\\Tools\\HexTools\\srec_cat.exe .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota -intel -exclude 0x0 0x1800 -offset -0x1800 -o .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota.bin -binary
 C:\Users\SF314-56\Desktop\GitZm5202\SDK\Z-Wave\lib\otacompress\otacompress.exe .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota.bin .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota.bin.lz1
 E:\\SDK\\Tools\\HexTools\\srec_cat.exe  .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota.bin.lz1 -binary -o .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.otz -intel -line-length=43
-".\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI_Rels\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.aof" - 0 Error(s), 6 Warning(s).
+".\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI_Rels\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.aof" - 0 Error(s), 9 Warning(s).
 </pre>
 </body>
 </html>

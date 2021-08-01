@@ -35,6 +35,7 @@
 /*                              INCLUDE FILES                               */
 /****************************************************************************/
 #include <ZW_basis_api.h>
+#include <config_app.h>
 #include "eeprom.h"
 #include <ZW_nvm_descriptor.h>
 
@@ -63,6 +64,8 @@ BYTE far EEOFFSET_TEST_FRAME_COUNT_SUCCESS_far[2];
 BYTE far EEOFFSET_TEST_STATUS_far;
 BYTE far EEOFFSET_TEST_SOURCE_NODE_ID_far;
 BYTE far OnOffState_far;
+BYTE far OnOffState1_far;
+BYTE far OnOffState2_far;
 BYTE far EEOFFSET_MAGIC_far;           /* MAGIC */
 EEOFFS_NETWORK_SECURITY_STRUCT far EEOFFS_SECURITY_RESERVED; // Reserved.
 BYTE far EEOFFSET_ASSOCIATION_ENDPOINT_START_far[(NUMBER_OF_ENDPOINTS_NVM_MAX + 1) * ASSOCIATION_SIZE_NVM_MAX];

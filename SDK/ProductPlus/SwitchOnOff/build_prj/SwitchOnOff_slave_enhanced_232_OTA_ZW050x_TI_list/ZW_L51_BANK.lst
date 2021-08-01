@@ -1,4 +1,4 @@
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE     1
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE     1
 
 
 MACRO ASSEMBLER AX51 V3.13.0.0
@@ -65,7 +65,7 @@ LOC    OBJ             LINE     SOURCE
                          49     ;                         ; for LX51 the maximum value for ?B_NBANKS is 64
                          50     ;
                          51     ; <o> ?B_MODE: Bank Switching via
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE     2
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE     2
 
                          52     ;                    <0=> 8051 Port
                          53     ;                    <1=> XDATA Port
@@ -133,7 +133,7 @@ LOC    OBJ             LINE     SOURCE
                                 ;-----------------------------------------------------------------------------
                                 ; if ?BANK?MODE is 1 define the following values
                                 ; For Bank-Switching via XDATA Port define XDATA Port Address / Bits
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE     3
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE     3
 
                                 ;
                                 ;<h> Bank Switching via XDATA Port Address
@@ -201,7 +201,7 @@ LOC    OBJ             LINE     SOURCE
                         180                     ANL     A,#(NOT 030H)
                         181                     ORL     A,#090H
                         182                     MOV     SFRPAGE,A
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE     4
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE     4
 
                         183                     ENDM
                         184     ;
@@ -269,7 +269,7 @@ LOC    OBJ             LINE     SOURCE
                         246     ; and calls that function via the routines defined in this L51_BANK.A51 file. *
                         247     ; The L51_BANK.A51 file contains two sets of functions for each bank:         *
                         248     ;                                                                             *
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE     5
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE     5
 
                         249     ; ?B_BANKn    is a routine which saves the entry of the ?B_SWITCHn function   *
                         250     ;             for the current active bank on the STACK and switches to the    *
@@ -337,7 +337,7 @@ LOC    OBJ             LINE     SOURCE
                                 CNT             SET     CNT+1
                                                 ENDM
                                 
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE     6
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE     6
 
                                 
                                 ?B_CURRENTBANK  EQU     ?B_PORT
@@ -405,7 +405,7 @@ LOC    OBJ             LINE     SOURCE
                                   IF ?B_NBANKS > 32
                                     IF (N < 32)
                                                 SJMP    SWITCHBNK_H
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE     7
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE     7
 
                                     ELSEIF (N = 32)
                                       SWITCHBNK_H:
@@ -473,7 +473,7 @@ LOC    OBJ             LINE     SOURCE
                                   ENDIF
                                 
                                   IF  ?B_FIRSTBIT = 7
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE     8
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE     8
 
                                   CONVBANKNO    MACRO
                                                 SWAP    A
@@ -541,7 +541,7 @@ LOC    OBJ             LINE     SOURCE
                                                 ENDM
                                 
                                 
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE     9
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE     9
 
                                   IF ?B_RTX = 0 AND ?B_NBANKS > 32
                                 
@@ -609,7 +609,7 @@ LOC    OBJ             LINE     SOURCE
                                 ?BANK?DATA      SEGMENT DATA
                                                 RSEG    ?BANK?DATA
                                 ?B_CURRENTBANK: DS      1
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    10
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    10
 
                                 
                                 
@@ -677,7 +677,7 @@ LOC    OBJ             LINE     SOURCE
                                     IF (N < 32)
                                                 SJMP    SWITCHBNK_H
                                     ELSEIF (N = 32)
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    11
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    11
 
                                       SWITCHBNK_H:
                                                 SJMP    SWITCHBNK
@@ -745,7 +745,7 @@ LOC    OBJ             LINE     SOURCE
                                                 RL      A
                                                 ENDM
                                   ENDIF
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    12
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    12
 
                                 
                                   SWITCH        MACRO   N
@@ -813,7 +813,7 @@ LOC    OBJ             LINE     SOURCE
                                                 MOVX    @DPTR,A
                                                 MOV     A,R0
                                                 RET
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    13
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    13
 
                                   ENDIF
                                 
@@ -881,7 +881,7 @@ LOC    OBJ             LINE     SOURCE
                                                 SWITCHJ %CNT
                                     CNT         SET     CNT+1
                                                 ENDM
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    14
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    14
 
                                   ENDIF
                         844     
@@ -949,7 +949,7 @@ LOC    OBJ             LINE     SOURCE
 000032 C082             906+2                   PUSH    DPL
 000034 C083             907+2                   PUSH    DPH
                         908+2                   SWITCH  %CNT
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    15
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    15
 
                         909+2                   PUBLIC  ?B_SWITCH2
                         910+2     IF (LONG_MACRO = 1)
@@ -1017,7 +1017,7 @@ LOC    OBJ             LINE     SOURCE
                                                 RL      A
                                                 RL      A
                                 ENDIF
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    16
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    16
 
                                 
                                 IF ?B_NBANKS <= 16 AND ?B_RTX = 0
@@ -1085,7 +1085,7 @@ LOC    OBJ             LINE     SOURCE
                        1038+2                   S_ENTRY %CNT
 00000C 00         F    1039+2                   DB      LOW ?B_SWITCH3
  0004                  1040+1   CNT             SET     CNT+1
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    17
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    17
 
                        1041     ENDIF  ; close block IF ?B_MODE = 4 *******************************************
                        1042     
@@ -1153,7 +1153,7 @@ LOC    OBJ             LINE     SOURCE
                                   IF  ?B_FIRSTBIT = 0
                                   CONV_MSPC     MACRO
                                                 ANL     A,#LOW (MASK)
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    18
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    18
 
                                                 ENDM
                                   ENDIF
@@ -1221,7 +1221,7 @@ LOC    OBJ             LINE     SOURCE
                                 SEL_BNK         MACRO   SaveA
                                 IF NOT NUL SaveA
                                                 PUSH    ACC
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    19
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    19
 
                                 ENDIF
                                                 CALL    SELECT_BANK_R3
@@ -1289,7 +1289,7 @@ LOC    OBJ             LINE     SOURCE
                                 IF ?B_MODE = 1 ;***************************************************************
                                 
                                 ; Select Bank depending on value in R3
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    20
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    20
 
                                 SEL_BNK         MACRO   SaveA
                                 LOCAL lab
@@ -1357,7 +1357,7 @@ LOC    OBJ             LINE     SOURCE
                                 ; Pop previous Bank and select it again
                                 POP_BNK         MACRO   SaveA
                                 IF NOT NUL SaveA
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    21
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    21
 
                                                 POP     DPL
                                                 XCH     A,DPL
@@ -1425,7 +1425,7 @@ LOC    OBJ             LINE     SOURCE
                                 
                                 ; PLDXPTR: Load    PTR in R1/R2/R3      via Address given in R1/R2/R3
                                 ?C?PLDXPTR:     PUSH    ?B_CURRENTBANK
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    22
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    22
 
                                                 SEL_BNK
                                                 JNC     PLDCODE
@@ -1493,7 +1493,7 @@ LOC    OBJ             LINE     SOURCE
                                                 MOV     R7,A
                                                 SJMP    RETURN_NO_A
                                 
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    23
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    23
 
                                 ; LSTXPTR: Store DWORD in R4/R5/R6/R7   via Address given in R1/R2/R3
                                 ?C?LSTXPTR:     PUSH    ?B_CURRENTBANK
@@ -1530,7 +1530,7 @@ LOC    OBJ             LINE     SOURCE
 000014 22              1469                     RET
                        1470     
                        1471                     END
-AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/01/21 16:36:57 PAGE    24
+AX51 MACRO ASSEMBLER  ZW_L51_BANK                                                           08/02/21 03:27:34 PAGE    24
 
 SYMBOL TABLE LISTING
 ------ ----- -------

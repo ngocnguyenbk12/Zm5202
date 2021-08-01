@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 1   
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE GPIO_DRIVER
@@ -62,7 +62,7 @@ line level    source
   15      =1   * Last Changed:     $Date: 2012-09-04 08:36:50 +0200 (ti, 04 sep 2012) $
   16      =1   *
   17      =1   ****************************************************************************/
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 2   
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 2   
 
   18      =1  #ifndef _ZW_PINDEFS_H_
   19      =1  #define _ZW_PINDEFS_H_
@@ -126,7 +126,7 @@ line level    source
   59      =2  #define IWORD  WORD data   /* Internal data word */
   60      =2  #define IDWORD DWORD data  /* Internal data double word*/
   61      =2  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 3   
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 3   
 
   62      =2  #define XBYTE  BYTE xdata  /* External data byte */
   63      =2  #define XWORD  WORD xdata  /* External data word */
@@ -190,7 +190,7 @@ line level    source
  124      =2  
  125      =2  /* offset of field m in a struct s */
  126      =2  #ifndef offsetof
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 4   
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 4   
 
  127      =2  #define offsetof(s,m)   (WORD)( (BYTE_P)&(((s *)0)->m) - (BYTE_P)0 )
  128      =2  #endif
@@ -254,7 +254,7 @@ line level    source
   79      =1   *    pin     - Z-Wave pin name
   80      =1   */
   81      =1   /*Fix TO#02731*/
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 5   
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 5   
 
   82      =1  #define PIN_OFF(pin) {pin##SHADOW &= ~(1<<pin);pin##Port = pin##SHADOW;}
   83      =1  #define PIN_LOW(pin) {pin##SHADOW &= ~(1<<pin);pin##Port = pin##SHADOW;}
@@ -318,7 +318,7 @@ line level    source
  141      =1  #define P03DIR_PAGE      P0DIR_PAGE
  142      =1  #define P03              3
  143      =1  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 6   
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 6   
 
  144      =1  #define P04Port          P0
  145      =1  #define P04SHADOW        P0Shadow
@@ -382,7 +382,7 @@ line level    source
  203      =1  #define P14SHADOWDIR     P1ShadowDIR
  204      =1  #define P14DIR_PAGE      P1DIR_PAGE
  205      =1  #define P14              4
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 7   
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 7   
 
  206      =1  
  207      =1  #define P15Port          P1
@@ -446,7 +446,7 @@ line level    source
  265      =1  #define P25SHADOW        P2Shadow
  266      =1  #define P25DIR           P2DIR
  267      =1  #define P25SHADOWDIR     P2ShadowDIR
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 8   
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 8   
 
  268      =1  #define P25DIR_PAGE      P2DIR_PAGE
  269      =1  #define P25              5
@@ -510,7 +510,7 @@ line level    source
  327      =1  /* IO function definitions
  328      =1  ^(#define ^(*Port^)^( +P[0-9]^)^)
  329      =1  ^1 #define ^2SHADOW     ^3
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 9   
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 9   
 
  330      =1  */
  331      =1  
@@ -574,7 +574,7 @@ line level    source
  389      =1  #define KP_OUT3Port          P0
  390      =1  #define KP_OUT3SHADOW        P0Shadow
  391      =1  #define KP_OUT3DIR           P0DIR
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 10  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 10  
 
  392      =1  #define KP_OUT3SHADOWDIR     P0ShadowDIR
  393      =1  #define KP_OUT3DIR_PAGE      P0DIR_PAGE
@@ -638,7 +638,7 @@ line level    source
  451      =1  
  452      =1  #define KP_OUT12Port          P3
  453      =1  #define KP_OUT12SHADOW        P3Shadow
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 11  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 11  
 
  454      =1  #define KP_OUT12DIR           P3DIR
  455      =1  #define KP_OUT12SHADOWDIR     P3ShadowDIR
@@ -702,7 +702,7 @@ line level    source
  513      =1  #define KP_IN4              4
  514      =1  
  515      =1  #define KP_IN5Port          P1
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 12  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 12  
 
  516      =1  #define KP_IN5SHADOW        P1Shadow
  517      =1  #define KP_IN5DIR           P1DIR
@@ -766,7 +766,7 @@ line level    source
  575      =1  #define INT5DIR_PAGE      P1DIR_PAGE
  576      =1  #define INT5              5
  577      =1  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 13  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 13  
 
  578      =1  #define INT6Port          P1
  579      =1  #define INT6SHADOW        P1Shadow
@@ -830,7 +830,7 @@ line level    source
  637      =1  #define ISP_MOSISHADOWDIR     P2ShadowDIR
  638      =1  #define ISP_MOSIDIR_PAGE      P2DIR_PAGE
  639      =1  #define ISP_MOSI              3
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 14  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 14  
 
  640      =1  
  641      =1  #define ISP_SCKPort          P2
@@ -894,7 +894,7 @@ line level    source
  699      =1  #define UART1_TXDDIR           P3DIR
  700      =1  #define UART1_TXDSHADOWDIR     P3ShadowDIR
  701      =1  #define UART1_TXDDIR_PAGE      P3DIR_PAGE
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 15  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 15  
 
  702      =1  #define UART1_TXD              1
  703      =1  
@@ -958,7 +958,7 @@ line level    source
  761      =1  #define GP_PWMPort          P3
  762      =1  #define GP_PWMSHADOW        P3Shadow
  763      =1  #define GP_PWMDIR           P3DIR
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 16  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 16  
 
  764      =1  #define GP_PWMSHADOWDIR     P3ShadowDIR
  765      =1  #define GP_PWMDIR_PAGE      P3DIR_PAGE
@@ -1022,7 +1022,7 @@ line level    source
    3      =1  * Copyright (c) 2001-2012
    4      =1  * Sigma Designs, Inc.
    5      =1  * All Rights Reserved
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 17  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 17  
 
    6      =1  *
    7      =1  *---------------------------------------------------------------------------
@@ -1086,7 +1086,7 @@ line level    source
   32      =1  #define ZW_DEBUG_BAUD_RATE    1152
   33      =1  
   34      =1  #ifdef ZW_DEBUG
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 18  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 18  
 
   63      =1  #ifdef ZW_DEBUG_USB
   74      =1  #ifdef ZW_DEBUG_UART0
@@ -1150,7 +1150,7 @@ line level    source
  140      =1  **  Side effects:
  141      =1  **--------------------------------------------------------------------------*/
  142      =1  void             /*RET Nothing */
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 19  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 19  
 
  143      =1  ZW_UART_init(
  144      =1    WORD bBaudRate,  /* IN  Baud rate / 100 (e.g. 96 => 9600baud/s, 1152 => 115200baud/s) */
@@ -1214,7 +1214,7 @@ line level    source
  202      =1  **
  203      =1  **--------------------------------------------------------------------------*/
  204      =1  #define ZW_UART_tx_send_num ZW_UART_tx_send_hex
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 20  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 20  
 
  205      =1  
  206      =1  void            /*RET Nothing */
@@ -1278,7 +1278,7 @@ line level    source
  264      =1  **    Side effects:
  265      =1  **--------------------------------------------------------------------------*/
  266      =1  void
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 21  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 21  
 
  267      =1  ZW_UART0_tx_int_clear(void);
  268      =1  
@@ -1342,7 +1342,7 @@ line level    source
  326      =1  **    Side effects:
  327      =1  **--------------------------------------------------------------------------*/
  328      =1  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 22  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 22  
 
  329      =1  BYTE    /* RET zero (0x00): tx interrupt flag is not set,
  330      =1           *     non-zero:  : tx interrupt flag is set      */
@@ -1406,7 +1406,7 @@ line level    source
  388      =1  
  389      =1  /*============================   ZW_UART0_tx_send_str   ========================
  390      =1  **  Transmit a null terminated string over UART0.
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 23  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 23  
 
  391      =1  **  The null data is not transmitted.
  392      =1  **
@@ -1470,7 +1470,7 @@ line level    source
  450      =1  **    Side effects:
  451      =1  **--------------------------------------------------------------------------*/
  452      =1  void
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 24  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 24  
 
  453      =1  ZW_UART1_tx_int_clear(void);
  454      =1  
@@ -1534,7 +1534,7 @@ line level    source
  512      =1  **    Side effects:
  513      =1  **--------------------------------------------------------------------------*/
  514      =1  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 25  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 25  
 
  515      =1  BYTE    /* RET zero (0x00): tx interrupt flag is not set,
  516      =1           *     non-zero:  : tx interrupt flag is set      */
@@ -1598,7 +1598,7 @@ line level    source
  574      =1  /*=============================   ZW_UART1_send_nl   =========================
  575      =1  **  Transmit CR + LF over UART1.
  576      =1  **
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 26  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 26  
 
  577      =1  **    Side effects:
  578      =1  **
@@ -1662,7 +1662,7 @@ line level    source
  636      =1  **  If the UART0 DMA process is ongoing this function Returns the status of this ongoing
  637      =1  **  process. Returns the status of the latest UART0 DMA process if the DMA has stopped.
  638      =1  **
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 27  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 27  
 
  639      =1  **  Returned values:
  640      =1  **       UART_TX_DMA_STATUS_SLOW_XRAM: DMA can not keep up with configured inter byte
@@ -1726,7 +1726,7 @@ line level    source
  698      =1  **
  699      =1  **   bByteCount: IN Interrupt is issued when this number of bytes has been DMA'ed from the UART
  700      =1  **                  Disabled when set to 0x00
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 28  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 28  
 
  701      =1  **    Side effects:
  702      =1  **-------------------------------------------------------------------------------------*/
@@ -1790,7 +1790,7 @@ line level    source
  760      =1  void                    /*RET nothing */
  761      =1  ZW_UART0_rx_dma_eor_set(BYTE bChar);  /*IN EoR character */
  762      =1  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 29  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 29  
 
  763      =1  /*=====================   ZW_UART0_rx_dma_byte_count_enable  =====================
  764      =1  **
@@ -1854,7 +1854,7 @@ line level    source
  822      =1  **
  823      =1  **  Returned values:
  824      =1  **       UART_TX_DMA_STATUS_SLOW_XRAM: DMA can not keep up with configured inter byte
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 30  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 30  
 
  825      =1  **                                     process because of congestion in XRAM access
  826      =1  **       UART_TX_DMA_STATUS_RUNNING:   The DMA is transferring data to UART1
@@ -1918,7 +1918,7 @@ line level    source
  884      =1  void                    /*RET Nothing */
  885      =1  ZW_UART1_rx_dma_int_byte_count(BYTE bByteCount); /*IN */
  886      =1  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 31  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 31  
 
  887      =1  /*===============================   ZW_UART1_rx_dma_status  ========================
  888      =1  **  If the UART1 RX DMA process is ongoing this function returns the status of this ongoing
@@ -1982,7 +1982,7 @@ line level    source
  946      =1  **  Enables or disabled the function switch buffer when a certain byte count is
  947      =1  **  reached
  948      =1  **
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 32  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 32  
 
  949      =1  **  Parameters: None
  950      =1  **
@@ -2046,7 +2046,7 @@ line level    source
    2      =2   *
    3      =2   * Copyright (c) 2001-2013
    4      =2   * Sigma Designs, Inc.
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 33  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 33  
 
    5      =2   * All Rights Reserved
    6      =2   *
@@ -2110,7 +2110,7 @@ line level    source
    9      =4   *                                           #####
   10      =4   *          Products that speak Z-Wave work together better
   11      =4   *
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 34  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 34  
 
   12      =4   *              Copyright (c) 2008
   13      =4   *              Zensys A/S
@@ -2174,7 +2174,7 @@ line level    source
   62      =3  
   63      =3  /**
   64      =3   * Security S2 Public CSA DSK Key length
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 35  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 35  
 
   65      =3   */
   66      =3  #define SECURITY_KEY_S2_PUBLIC_CSA_DSK_LENGTH 4
@@ -2238,7 +2238,7 @@ line level    source
  124      =3  
  125      =3  /**
  126      =3  * Application must implement this function
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 36  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 36  
 
  127      =3  * NOTE: If Z-Wave framework are used then ApplicationSecureCommandsSupported
  128      =3  *       are allready implemented in \ref ZW_TransportSecProtocol.c.
@@ -2302,7 +2302,7 @@ line level    source
  186      =3  
  187      =3  /*======================   ZW_SetSecurityS0NetworkKey   ======================
  188      =3  **    @brief
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 37  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 37  
 
  189      =3  **    Set the network key S0 in the protocol.
  190      =3  **    This function is only to be called after a firmware update from an
@@ -2366,7 +2366,7 @@ line level    source
   24      =3   * Description: Functions used to manipulate bits (Node ID) in a NodeMask array.
   25      =3   *
   26      =3   * Author:   Ivar Jeppesen
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 38  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 38  
 
   27      =3   *
   28      =3   * Last Changed By:  $Author: jbu $
@@ -2430,7 +2430,7 @@ line level    source
   86      =3  ** BYTE       RET   Number of bits set in nodemask
   87      =3  ** ZW_NodeMaskBitsIn(
   88      =3  ** BYTE_P pMask,     IN   pointer to nodemask
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 39  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 39  
 
   89      =3  ** BYTE bLength);    IN   length of nodemask
   90      =3  **--------------------------------------------------------------------------*/
@@ -2494,7 +2494,7 @@ line level    source
  148      =3  **
  149      =3  **--------------------------------------------------------------------------*/
  150      =3  extern BYTE       /*RET   Number of bits set in nodemask  */
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 40  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 40  
 
  151      =3  ZW_NodeMaskBitsIn(
  152      =3  BYTE_P pMask,     /* IN   pointer to nodemask             */
@@ -2558,7 +2558,7 @@ line level    source
   59      =2  /* do not use response route - Even if available */
   60      =2  #define TRANSMIT_OPTION_NO_ROUTE                0x10
   61      =2  /* Use explore frame if needed */
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 41  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 41  
 
   62      =2  #define TRANSMIT_OPTION_EXPLORE                 0x20
   63      =2  
@@ -2622,7 +2622,7 @@ line level    source
  121      =2   * @}
  122      =2   */
  123      =2  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 42  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 42  
 
  124      =2  /* Predefined Node ID's */
  125      =2  #define NODE_BROADCAST              0xFF    /* broadcast */
@@ -2686,7 +2686,7 @@ line level    source
  190      =2  {
  191      =2    BYTE from;
  192      =2    BYTE to;
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 43  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 43  
 
  193      =2  } S_ROUTE_LINK;
  194      =2  
@@ -2750,7 +2750,7 @@ line level    source
  251      =2  * This flag will activate frame delivery.
  252      =2  *
  253      =2  * In this transmission mode the S2_send_data will try
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 44  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 44  
 
  254      =2  * to verify that the receiver understood the sent message.
  255      =2  * This is done by waiting a little to see if the node will
@@ -2814,7 +2814,7 @@ line level    source
  313      =2  
  314      =2  /*============================   ZW_RouteDestinations   ======================
  315      =2  **    Structure description
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 45  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 45  
 
  316      =2  **      This contains a list of nodes that currently can be reached via
  317      =2  **      return routes.
@@ -2878,7 +2878,7 @@ line level    source
  464      =2  **    Function description
  465      =2  **      If production test is enabled during start up.
  466      =2  **      Calling this function will transmit a constant signal until a new
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 46  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 46  
 
  467      =2  **      RF function is called
  468      =2  **
@@ -2942,7 +2942,7 @@ line level    source
  555      =2  ZW_SendConst(
  556      =2                BYTE bStart,  /*IN TRUE start sending RF test signal, FALSE disable RF test signal*/
  557      =2                BYTE bChNo,   /*IN channle number to send RF test signal on*/
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 47  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 47  
 
  558      =2                BYTE bSignalType ); /*IN The RF test signal type.*/
  559      =2  
@@ -3006,7 +3006,7 @@ line level    source
  707      =2    TRANSMIT_MULTI_OPTIONS_TYPE *pTxOptionsMultiEx,
  708      =2    VOID_CALLBACKFUNC(completedFunc)(BYTE)); /* IN Transmit completed call back function */
  709      =2  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 48  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 48  
 
  710      =2  
  711      =2  /*===============================   ZW_SendDataEx   ===========================
@@ -3070,7 +3070,7 @@ line level    source
  780      =2  /**
  781      =2   * Return Version on supplied Command Class if supported by protocol.
  782      =2   * If supplied Command Class not supported by protocol then UNKNOWN_VERSION is returned.
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 49  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 49  
 
  783      =2   *
  784      =2   * \param commandClass    command class to query for version.
@@ -3134,7 +3134,7 @@ line level    source
   72      =1  
   73      =1  
   74      =1  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 50  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 50  
 
   75      =1  
   76      =1  /*=============================   GetMyNodeID  ===============================
@@ -3198,7 +3198,7 @@ line level    source
   49      =1    BYTE  bNVMChipSelect;
   50      =1    BYTE  abSAWCenterFreq[NVR_SAW_CENTER_FREQ_SIZE];
   51      =1    BYTE  bSAWBandwidth;
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 51  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 51  
 
   52      =1    BYTE  bNVMType;
   53      =1    BYTE  bNVMSize[NVR_NVM_SIZE_SIZE];
@@ -3262,7 +3262,7 @@ line level    source
  110      =1  **--------------------------------------------------------------------------*/
  111      =1  BOOL
  112      =1  ZW_IsNVRValid();
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 52  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 52  
 
  113      =1  
  114      =1  /*============================   ZW_GetNVRRevision   =========================
@@ -3326,7 +3326,7 @@ line level    source
   28      =2   * Last Changed By:  $Author: efh $
   29      =2   * Revision:         $Revision: 29359 $
   30      =2   * Last Changed:     $Date: 2014-07-11 11:13:33 +0200 (fr, 11 jul 2014) $
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 53  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 53  
 
   31      =2   *
   32      =2   ****************************************************************************/
@@ -3390,7 +3390,7 @@ line level    source
   77      =1   * @param pfState Pointer to result variable.
   78      =1   * @return TRUE if pin port exists, FALSE otherwise.
   79      =1   */
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 54  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 54  
 
   80      =1  BOOL gpio_GetPinBool(BYTE pin, BYTE * pfState);
   81      =1  
@@ -3454,7 +3454,7 @@ line level    source
   16      =2  *
   17      =2  ****************************************************************************/
   18      =2  
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 55  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 55  
 
   19      =2  
   20      =2  #ifndef _ZW0X0X_H_
@@ -3518,7 +3518,7 @@ line level    source
   53      =3  sfr DPH       = 0x83;
   54      =3  sfr P0        = 0x80;
   55      =3  sfr P1        = 0x90;
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 56  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 56  
 
   56      =3  sfr P2        = 0xA0;
   57      =3  sfr P3        = 0xB0;
@@ -3582,7 +3582,7 @@ line level    source
  115      =3  sbit ES0    = IE^4;
  116      =3  sbit ET1    = IE^3;
  117      =3  sbit EX1    = IE^2;
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 57  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 57  
 
  118      =3  sbit ET0    = IE^1;
  119      =3  sbit EX0    = IE^0;
@@ -3646,7 +3646,7 @@ line level    source
  177      =3  #define TL1_PAGE   /* ANY */
  178      =3  #define TL0_PAGE   /* ANY */
  179      =3  #define TMOD_PAGE  /* ANY */
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 58  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 58  
 
  180      =3  #define TCON_PAGE  /* ANY */
  181      =3  #define PCON_PAGE  /* ANY */
@@ -3710,7 +3710,7 @@ line level    source
  239      =3  #define INUM_IR 12
  240      =3  
  241      =3  //ISR servicing SPI0
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 59  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 59  
 
  242      =3  #define INUM_SPI0 13
  243      =3  
@@ -3774,7 +3774,7 @@ line level    source
   47          #define ZW_DEBUG_GPIO_DRIVER_SEND_BYTE(data)
   48          #define ZW_DEBUG_GPIO_DRIVER_SEND_STR(STR)
   49          #define ZW_DEBUG_GPIO_DRIVER_SEND_NUM(data)
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 60  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 60  
 
   50          #define ZW_DEBUG_GPIO_DRIVER_SEND_WORD_NUM(data)
   51          #define ZW_DEBUG_GPIO_DRIVER_SEND_NL()
@@ -3838,7 +3838,7 @@ line level    source
  109   2            break;
  110   2          case 1:
  111   2            P1DIR_PAGE;
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 61  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 61  
 
  112   2            (P1ShadowDIR |= (1<<portPin));
  113   2            (pullUp)?(P1Shadow &=~(1 << portPin)):(P1Shadow |= (1 << portPin));
@@ -3902,7 +3902,7 @@ line level    source
  171          /**
  172           * @brief Returns the state of a given pin as boolean.
  173           * @param pin A given pin.
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 62  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 62  
 
  174           * @param pfState Pointer to result variable.
  175           * @return TRUE if pin port exists, FALSE otherwise.
@@ -3966,7 +3966,7 @@ line level    source
  233   1        return;
  234   1      }
  235          
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 63  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 63  
 
  236          /**
  237           * @brief Sets a pin low.
@@ -4030,7 +4030,7 @@ line level    source
  295   2          ZW_DEBUG_GPIO_DRIVER_SEND_STR("GPIO: Invalid value!");
  296   2          return FALSE;
  297   2        }
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 64  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 64  
 
  298   1      
  299   1        ZW_DEBUG_GPIO_DRIVER_SEND_NL();
@@ -4094,7 +4094,7 @@ line level    source
  357   1      }
  358          
  359          BOOL gpio_GetPin(BYTE pin)
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 65  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 65  
 
  360          {
  361   1        BYTE fPinState;
@@ -4105,7 +4105,7 @@ line level    source
  366   1        gpio_GetPinBool(pin, &fPinState);
  367   1        return (BOOL)fPinState;
  368   1      }
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 66  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 66  
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -4169,7 +4169,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ; FUNCTION _searchPinList (END)
 
              ; FUNCTION _PinIn (BEGIN)
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 67  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 67  
 
                                            ; SOURCE LINE # 97
 ;---- Variable 'pin' assigned to Register 'R7' ----
@@ -4233,7 +4233,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                  E     MOV     P0,P0Shadow
                  E     MOV     P0DIR,P0ShadowDIR
                                            ; SOURCE LINE # 109
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 68  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 68  
 
                  R     xJMP    ?C0006
                                            ; SOURCE LINE # 110
@@ -4297,7 +4297,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                  R     xJMP    ?C0015
              ?C0014:
                        MOV     A,#01H
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 69  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 69  
 
                        MOV     R0,AR7
                        INC     R0
@@ -4361,7 +4361,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 130
                        SETB    C
                                            ; SOURCE LINE # 131
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 70  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 70  
 
              ?C0020:
                        RET     
@@ -4425,7 +4425,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ?C0089:
                        CLR     C
                        RLC     A
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 71  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 71  
 
              ?C0090:
                  R     DJNZ    R0,?C0089
@@ -4489,7 +4489,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ; FUNCTION _PinOut (END)
 
              ; FUNCTION _gpio_GetPinBool (BEGIN)
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 72  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 72  
 
                                            ; SOURCE LINE # 178
 ;---- Variable 'pfState' assigned to Register 'R1/R2/R3' ----
@@ -4553,7 +4553,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 189
                  R     MOV     DPTR,#portPin
                        MOVX    A,@DPTR
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 73  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 73  
 
                        MOV     R7,A
                        MOV     A,#01H
@@ -4617,7 +4617,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                                            ; SOURCE LINE # 195
                  R     MOV     DPTR,#portPin
                        MOVX    A,@DPTR
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 74  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 74  
 
                        MOV     R7,A
                        MOV     A,#01H
@@ -4681,7 +4681,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                        MOV     A,R6
                        DEC     A
                  R     xJZ     ?C0045
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 75  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 75  
 
                        DEC     A
                  R     xJZ     ?C0046
@@ -4745,7 +4745,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ?C0047:
                                            ; SOURCE LINE # 229
                        MOV     A,#01H
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 76  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 76  
 
                        MOV     R0,AR7
                        INC     R0
@@ -4809,7 +4809,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                  E     MOV     P0,P0Shadow
                                            ; SOURCE LINE # 251
                        RET     
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 77  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 77  
 
                                            ; SOURCE LINE # 252
              ?C0051:
@@ -4873,7 +4873,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ; FUNCTION gpio_DriverInit (BEGIN)
                                            ; SOURCE LINE # 269
                                            ; SOURCE LINE # 270
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 78  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 78  
 
                                            ; SOURCE LINE # 276
                  R     xJB     automaticPinSwap,?C0055
@@ -4937,7 +4937,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                        MOVX    A,@DPTR
                        ORL     A,R6
                  R     xJZ     ?C0060
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 79  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 79  
 
                                            ; SOURCE LINE # 305
                                            ; SOURCE LINE # 308
@@ -5001,7 +5001,7 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
              ; FUNCTION _gpio_SetPin (BEGIN)
                                            ; SOURCE LINE # 338
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 80  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 80  
 
                  R     MOV     DPTR,#pin
                        MOV     A,R7
@@ -5065,13 +5065,13 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
                        MOVX    A,@DPTR
                        ADD     A,#0FFH
                                            ; SOURCE LINE # 368
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 81  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 81  
 
              ?C0070:
                        RET     
              ; FUNCTION _gpio_GetPin (END)
 
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 82  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 82  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -5134,7 +5134,7 @@ P1b2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0092H  1
 P0b3 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0083H  1
 P3b1 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
 P2b2 . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A2H  1
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 83  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 83  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -5197,7 +5197,7 @@ _gpio_SetPinIn . . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
 SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
 _gpio_SetPinOut. . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
   pin. . . . . . . . . . . . . . . . .  AUTO     XDATA  U_CHAR   0000H  1
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 84  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 84  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -5260,7 +5260,7 @@ ES0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ACH  1
 ES1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ECH  1
 ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
 ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 85  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 85  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -5323,7 +5323,7 @@ _TX_STATUS_TYPE_ . . . . . . . . . . .  * TAG *  -----  STRUCT   -----  19
   rssi_values. . . . . . . . . . . . .  MEMBER   -----  STRUCT   0003H  5
   bACKChannelNo. . . . . . . . . . . .  MEMBER   -----  U_CHAR   0008H  1
   bLastTxChannelNo . . . . . . . . . .  MEMBER   -----  U_CHAR   0009H  1
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 86  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 86  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====
@@ -5386,7 +5386,7 @@ _gpio_GetPinBool . . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
   portPin. . . . . . . . . . . . . . .  AUTO     XDATA  U_CHAR   0000H  1
 ZW_SENDDATA_EX_RETURN_CODES. . . . . .  * TAG *  -----  ENUM     -----  -----
 P1Shadow . . . . . . . . . . . . . . .  EXTERN   DATA   U_CHAR   -----  1
-C51 COMPILER V9.54   GPIO_DRIVER                                                           08/01/2021 16:36:24 PAGE 87  
+C51 COMPILER V9.54   GPIO_DRIVER                                                           08/02/2021 03:26:44 PAGE 87  
 
 NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
 ====                                    =====   ======  ====    ======  ====

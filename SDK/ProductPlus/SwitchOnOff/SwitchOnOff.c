@@ -70,6 +70,8 @@
 #include <zaf_version.h>
 #include <gpio_driver.h>
 
+#include <endpoint_lookup.h>
+
 /****************************************************************************/
 /*                      PRIVATE TYPES and DEFINITIONS                       */
 /****************************************************************************/
@@ -104,8 +106,17 @@
 
 #define Pin3 0x11
 #define Pin4 0x10
-#define Pin5 0x04
-
+//#define Pin5 0x04
+#define Pin15 0x35
+//#define Pin10 0x34
+  
+	
+	
+	// another define for testing 
+#define Pin10 0x04
+#define Pin5 0x34
+	
+	
 typedef enum Blink_Mode
 {
 	Fast,
@@ -124,7 +135,13 @@ typedef enum _EVENT_APP_
   EVENT_APP_OTA_HOST_WRITE_DONE,
   EVENT_APP_OTA_HOST_STATUS,
   EVENT_APP_SMARTSTART_IN_PROGRESS,
-  EVENT_DEBUG 
+  EVENT_DEBUG,
+  EVENT_APP_EP0_SET,
+  EVENT_APP_EP1_SET,
+  EVENT_APP_EP2_SET,
+  EVENT_APP_EP0_RP,
+  EVENT_APP_EP1_RP,
+  EVENT_APP_EP2_RP,
 } EVENT_APP;
 
 
@@ -159,6 +176,7 @@ static code BYTE cmdClassListNonSecureNotIncluded[] =
   COMMAND_CLASS_SWITCH_BINARY,
   COMMAND_CLASS_ASSOCIATION,
   COMMAND_CLASS_MULTI_CHANNEL_ASSOCIATION_V2,
+  COMMAND_CLASS_MULTI_CHANNEL_V3,
   COMMAND_CLASS_ASSOCIATION_GRP_INFO,
   COMMAND_CLASS_TRANSPORT_SERVICE_V2,
   COMMAND_CLASS_VERSION,
@@ -181,10 +199,6 @@ static code BYTE cmdClassListNonSecureNotIncluded[] =
 static code BYTE cmdClassListNonSecureIncludedSecure[] =
 {
   COMMAND_CLASS_ZWAVEPLUS_INFO,
-  COMMAND_CLASS_SUPERVISION,
-  COMMAND_CLASS_TRANSPORT_SERVICE_V2,
-  COMMAND_CLASS_SECURITY,
-  COMMAND_CLASS_SECURITY_2
 };
 
 
@@ -202,7 +216,7 @@ static code BYTE cmdClassListSecure[] =
   COMMAND_CLASS_ASSOCIATION_GRP_INFO,
   COMMAND_CLASS_MANUFACTURER_SPECIFIC,
   COMMAND_CLASS_DEVICE_RESET_LOCALLY,
-  COMMAND_CLASS_POWERLEVEL
+  COMMAND_CLASS_MULTI_CHANNEL_V3
 #ifdef BOOTLOADER_ENABLED
   ,COMMAND_CLASS_FIRMWARE_UPDATE_MD_V2
 #endif
@@ -220,15 +234,86 @@ APP_NODE_INFORMATION m_AppNIF =
   DEVICE_OPTIONS_MASK, GENERIC_TYPE, SPECIFIC_TYPE
 };
 
-/**
- * AGI lifeline string
- */
-const char GroupName[]   = "Lifeline";
+static code BYTE cmdClassListNonSecureIncludedNonSecure_Endpoints[] =
+{
+  COMMAND_CLASS_ZWAVEPLUS_INFO,
+  COMMAND_CLASS_SWITCH_BINARY,
+	COMMAND_CLASS_BASIC,
+  COMMAND_CLASS_ASSOCIATION,
+  COMMAND_CLASS_ASSOCIATION_GRP_INFO,
+  COMMAND_CLASS_MULTI_CHANNEL_ASSOCIATION_V2,
+	COMMAND_CLASS_MULTI_CHANNEL_V3
+};
+
+static code BYTE cmdClassListNonSecureIncludedSecure_Endpoints[] =
+{
+  COMMAND_CLASS_ZWAVEPLUS_INFO,
+};
+
+static code BYTE cmdClassListSecure_Endpoints[] =
+{
+  COMMAND_CLASS_SWITCH_BINARY,
+  COMMAND_CLASS_ASSOCIATION,
+  COMMAND_CLASS_ASSOCIATION_GRP_INFO,
+  COMMAND_CLASS_MULTI_CHANNEL_ASSOCIATION_V2,
+	COMMAND_CLASS_MULTI_CHANNEL_V3
+};
+
+static EP_NIF endpointsNIF[NUMBER_OF_ENDPOINTS] = 
+{
+	/* EndPoint 1 */
+	{ GENERIC_TYPE_SWITCH_BINARY, SPECIFIC_TYPE_POWER_SWITCH_BINARY,
+		{
+	{cmdClassListNonSecureIncludedNonSecure_Endpoints, sizeof(cmdClassListNonSecureIncludedNonSecure_Endpoints)},
+	{{cmdClassListNonSecureIncludedSecure_Endpoints, sizeof(cmdClassListNonSecureIncludedSecure_Endpoints)},
+	{cmdClassListSecure_Endpoints, sizeof(cmdClassListSecure_Endpoints)}}
+		}
+	},
+	/* EndPoint 2 */
+	{ GENERIC_TYPE_SWITCH_BINARY, SPECIFIC_TYPE_POWER_SWITCH_BINARY,
+		{
+	{cmdClassListNonSecureIncludedNonSecure_Endpoints, sizeof(cmdClassListNonSecureIncludedNonSecure_Endpoints)},
+	{{cmdClassListNonSecureIncludedSecure_Endpoints, sizeof(cmdClassListNonSecureIncludedSecure_Endpoints)},
+	{cmdClassListSecure_Endpoints, sizeof(cmdClassListSecure_Endpoints)}}
+		}
+	}
+};
+
+EP_FUNCTIONALITY_DATA endPointFunctionality =
+{
+  NUMBER_OF_INDIVIDUAL_ENDPOINTS,     /**< nbrIndividualEndpoints 7 bit*/
+  RES_ZERO,                           /**< resIndZeorBit 1 bit*/
+  NUMBER_OF_AGGREGATED_ENDPOINTS,     /**< nbrAggregatedEndpoints 7 bit*/
+  RES_ZERO,                           /**< resAggZeorBit 1 bit*/
+  RES_ZERO,                           /**< resZero 6 bit*/
+  ENDPOINT_IDENTICAL_DEVICE_CLASS_NO,/**< identical 1 bit*/
+  ENDPOINT_DYNAMIC_NO                /**< dynamic 1 bit*/
+};
 
 /**
  * Setup AGI lifeline table from app_config.h
  */
-CMD_CLASS_GRP  agiTableLifeLine[] = {AGITABLE_LIFELINE_GROUP};
+CMD_CLASS_GRP  agiTableLifeLine[] =         {AGITABLE_LIFELINE_GROUP};
+CMD_CLASS_GRP  agiTableLifeLineEndPoints[] = {AGITABLE_LIFELINE_GROUP_ENDPOINTS};
+
+AGI_GROUP agiTableRootDeviceGroups[] =        {AGITABLE_ROOTDEVICE_GROUPS};
+ST_ENDPOINT_ICONS ZWavePlusEndpointIcons[] =  {ENDPOINT_ICONS};
+
+static const AGI_PROFILE lifelineProfile = {
+	ASSOCIATION_GROUP_INFO_REPORT_PROFILE_GENERAL,
+	ASSOCIATION_GROUP_INFO_REPORT_PROFILE_GENERAL_LIFELINE
+};
+
+static const AGI_PROFILE lifelineProfileEndPoint1 = {
+	ASSOCIATION_GROUP_INFO_REPORT_PROFILE_CONTROL_V3,
+	ASSOCIATION_GROUP_INFO_REPORT_PROFILE_CONTROL_KEY01_V3
+};
+
+static const AGI_PROFILE lifelineProfileEndPoint2 = {
+	ASSOCIATION_GROUP_INFO_REPORT_PROFILE_CONTROL_V3,
+	ASSOCIATION_GROUP_INFO_REPORT_PROFILE_CONTROL_KEY02_V3
+};
+
 
 /**
  * Application node ID
@@ -249,6 +334,8 @@ SW_WAKEUP wakeupReason;
  * LED state
  */
 static BYTE onOffState;
+static BYTE onOffState1;
+static BYTE onOffState2;	
 
 /**
  * Use to tell if the host OTA required auto rebooting or not
@@ -294,7 +381,7 @@ void Fast_delay(void);
 void Slow_delay(void);
 void FastBlink(BYTE Pin);
 void Toggle(BYTE Pin);
-
+void Control_gpio(BYTE endpoint);
 
 /**
  * @brief See description for function prototype in ZW_basis_api.h.
@@ -322,6 +409,8 @@ ApplicationInitHW(SW_WAKEUP bWakeupReason)
 	
 //	SetPinOut(Pin13);
 	SetPinOut(Pin3);
+	Led(Pin3,0);
+	SetPinOut(Pin10);
 	Led(Pin3,0);
 //  Led(Pin13 ,0);     
 	
@@ -352,12 +441,18 @@ ApplicationInitSW(ZW_NVM_STATUS nvmStatus)
   ZW_WatchDogEnable();
 #endif
 
+	onOffState1 = 0;
+	onOffState2 = 0;
+	MemoryPutByte((WORD)&OnOffState1_far, onOffState1);
+	MemoryPutByte((WORD)&OnOffState2_far, onOffState2);
   /* Signal that the sensor is awake */
   LoadConfiguration(nvmStatus);
 
   /* Setup AGI group lists*/
   AGI_Init();
   AGI_LifeLineGroupSetup(agiTableLifeLine, (sizeof(agiTableLifeLine)/sizeof(CMD_CLASS_GRP)), GroupName, ENDPOINT_ROOT);
+  AGI_LifeLineGroupSetup(agiTableLifeLineEndPoints, (sizeof(agiTableLifeLine)/sizeof(CMD_CLASS_GRP)), GroupName, ENDPOINT_1);
+  AGI_LifeLineGroupSetup(agiTableLifeLineEndPoints, (sizeof(agiTableLifeLine)/sizeof(CMD_CLASS_GRP)), GroupName, ENDPOINT_2);
 
 #ifdef BOOTLOADER_ENABLED
   /* Initialize OTA module */
@@ -372,6 +467,7 @@ ApplicationInitSW(ZW_NVM_STATUS nvmStatus)
   ZAF_eventSchedulerInit(AppStateManager);
 
   Transport_OnApplicationInitSW( &m_AppNIF);
+   Transport_AddEndpointSupport( &endPointFunctionality, endpointsNIF, NUMBER_OF_ENDPOINTS);
   ZCB_eventSchedulerEventAdd(EVENT_APP_INIT);
 
   return(application_node_type);
@@ -431,8 +527,6 @@ Transport_ApplicationCommandHandlerEx(
   BYTE cmdLength)
 {
   received_frame_status_t frame_status = RECEIVED_FRAME_STATUS_NO_SUPPORT;
-
-
   /* Call command class handlers */
   switch (pCmd->ZW_Common.cmdClass)
   {
@@ -454,10 +548,6 @@ Transport_ApplicationCommandHandlerEx(
 			frame_status = handleCommandClassAssociation(rxOpt, pCmd, cmdLength);
       break;
 
-    case COMMAND_CLASS_POWERLEVEL:
-      frame_status = handleCommandClassPowerLevel(rxOpt, pCmd, cmdLength);
-      break;
-
     case COMMAND_CLASS_MANUFACTURER_SPECIFIC:
       frame_status = handleCommandClassManufacturerSpecific(rxOpt, pCmd, cmdLength);
       break;
@@ -474,12 +564,11 @@ Transport_ApplicationCommandHandlerEx(
       frame_status = handleCommandClassBinarySwitch(rxOpt, pCmd, cmdLength);
       break;
 
-    case COMMAND_CLASS_SUPERVISION:
-      frame_status = handleCommandClassSupervision(rxOpt, pCmd, cmdLength);
-      break;
-
     case COMMAND_CLASS_MULTI_CHANNEL_ASSOCIATION_V2:
       frame_status = handleCommandClassMultiChannelAssociation(rxOpt, pCmd, cmdLength);
+      break;
+		case COMMAND_CLASS_MULTI_CHANNEL_V3:
+      frame_status = MultiChanCommandHandler(rxOpt, pCmd, cmdLength);
       break;
   }
   return frame_status;
@@ -500,15 +589,14 @@ handleCommandClassVersionAppl( BYTE cmdClass )
      commandClassVersion = CommandClassVersionVersionGet();
       break;
 
+    case COMMAND_CLASS_BASIC:
+     commandClassVersion =  CommandClassBasicVersionGet();
+      break;
 #ifdef BOOTLOADER_ENABLED
     case COMMAND_CLASS_FIRMWARE_UPDATE_MD:
       commandClassVersion = CommandClassFirmwareUpdateMdVersionGet();
       break;
 #endif
-
-    case COMMAND_CLASS_POWERLEVEL:
-     commandClassVersion = CommandClassPowerLevelVersionGet();
-      break;
 
     case COMMAND_CLASS_MANUFACTURER_SPECIFIC:
      commandClassVersion = CommandClassManufacturerVersionGet();
@@ -529,19 +617,14 @@ handleCommandClassVersionAppl( BYTE cmdClass )
     case COMMAND_CLASS_ZWAVEPLUS_INFO:
      commandClassVersion = CommandClassZWavePlusVersion();
       break;
-    case COMMAND_CLASS_BASIC:
-     commandClassVersion =  CommandClassBasicVersionGet();
-      break;
     case COMMAND_CLASS_SWITCH_BINARY:
      commandClassVersion = CommandClassBinarySwitchVersionGet();
       break;
-
     case COMMAND_CLASS_MULTI_CHANNEL_ASSOCIATION_V2:
       commandClassVersion = CmdClassMultiChannelAssociationVersion();
       break;
-
-    case COMMAND_CLASS_SUPERVISION:
-      commandClassVersion = CommandClassSupervisionVersionGet();
+		case COMMAND_CLASS_MULTI_CHANNEL_V3:
+      commandClassVersion = CmdClassMultiChannelGet();
       break;
 
     default:
@@ -549,7 +632,6 @@ handleCommandClassVersionAppl( BYTE cmdClass )
   }
   return commandClassVersion;
 }
-
 
 /**
  * @brief See description for function prototype in ZW_slave_api.h.
@@ -979,8 +1061,19 @@ handleFirmWareIdGet( BYTE n)
 BYTE
 handleAppltBinarySwitchGet(BYTE endpoint)
 {
-  UNUSED(endpoint);
-  return MemoryGetByte((WORD)&OnOffState_far);
+  switch(endpoint){
+			case ENDPOINT_ROOT:
+				return (MemoryGetByte((WORD)&OnOffState1_far) || MemoryGetByte((WORD)&OnOffState2_far) );
+			break;
+			case ENDPOINT_1:
+				return MemoryGetByte((WORD)&OnOffState1_far);
+				break;
+			case ENDPOINT_2:
+				return MemoryGetByte((WORD)&OnOffState2_far);
+				break;
+			default:
+				return 0;
+	}	
 }
 
 
@@ -990,12 +1083,86 @@ handleAppltBinarySwitchGet(BYTE endpoint)
 void
 handleApplBinarySwitchSet(CMD_CLASS_BIN_SW_VAL val, BYTE endpoint )
 {
-  UNUSED(endpoint);
-  onOffState = val;
-  MemoryPutByte((WORD)&OnOffState_far, onOffState);
-  controlRelay();
-  RefreshMMI();
+  switch(endpoint){
+	  case ENDPOINT_ROOT:
+			onOffState1 = val;
+			onOffState2 = val;
+			MemoryPutByte((WORD)&OnOffState1_far, onOffState1);
+			MemoryPutByte((WORD)&OnOffState2_far, onOffState2);	
+			Control_gpio(ENDPOINT_ROOT);
+			break;
+	  case ENDPOINT_1:
+			onOffState1 = val;
+			MemoryPutByte((WORD)&OnOffState1_far, onOffState1);
+			Control_gpio(ENDPOINT_1);
+			break;
+	  case ENDPOINT_2:
+			onOffState2 = val;
+			MemoryPutByte((WORD)&OnOffState2_far, onOffState2);
+			Control_gpio(ENDPOINT_2);
+			break;
+	}
 }
+
+void Control_gpio(BYTE endpoint){
+	switch(endpoint){
+		case ENDPOINT_ROOT:
+		if (onOffState1)
+			{
+			gpio_SetPin(Pin3,	ON);
+			// CmdClassBinarySwitchReportSendUnsolicited(&lifelineProfile,	ENDPOINT_ROOT, onOffState, ZCB_JobStatus);
+//			ReportState(ENDPOINT_ROOT, onOffState);
+			}
+		else
+		{
+			gpio_SetPin(Pin3, OFF);
+			// CmdClassBinarySwitchReportSendUnsolicited(&lifelineProfile,	ENDPOINT_ROOT, onOffState, ZCB_JobStatus);
+//			ReportState(ENDPOINT_ROOT, onOffState);
+		}
+		if (onOffState2)
+			{
+			gpio_SetPin(Pin10,	ON);
+			// CmdClassBinarySwitchReportSendUnsolicited(&lifelineProfile,	ENDPOINT_ROOT, onOffState, ZCB_JobStatus);
+//			ReportState(ENDPOINT_ROOT, onOffState);
+			}
+		else
+		{
+			gpio_SetPin(Pin10, OFF);
+			// CmdClassBinarySwitchReportSendUnsolicited(&lifelineProfile,	ENDPOINT_ROOT, onOffState, ZCB_JobStatus);
+//			ReportState(ENDPOINT_ROOT, onOffState);
+		}
+		break;
+		case ENDPOINT_1:
+		if (onOffState1)
+			{
+			gpio_SetPin(Pin3,	ON);
+			// CmdClassBinarySwitchReportSendUnsolicited(&lifelineProfile,	ENDPOINT_ROOT, onOffState, ZCB_JobStatus);
+//			ReportState(ENDPOINT_ROOT, onOffState);
+			}
+		else
+		{
+			gpio_SetPin(Pin3, OFF);
+			// CmdClassBinarySwitchReportSendUnsolicited(&lifelineProfile,	ENDPOINT_ROOT, onOffState, ZCB_JobStatus);
+//			ReportState(ENDPOINT_ROOT, onOffState);
+		}
+		break;
+		case ENDPOINT_2:
+		if (onOffState2)
+			{
+			gpio_SetPin(Pin10,	ON);
+			// CmdClassBinarySwitchReportSendUnsolicited(&lifelineProfile,	ENDPOINT_ROOT, onOffState, ZCB_JobStatus);
+//			ReportState(ENDPOINT_ROOT, onOffState);
+			}
+		else
+		{
+			gpio_SetPin(Pin10, OFF);
+			// CmdClassBinarySwitchReportSendUnsolicited(&lifelineProfile,	ENDPOINT_ROOT, onOffState, ZCB_JobStatus);
+//			ReportState(ENDPOINT_ROOT, onOffState);
+		}
+		break;
+	}
+}	
+
 
 
 /**
@@ -1135,7 +1302,7 @@ ApplicationSecurityEvent(
 */
 BYTE ApplicationSecureKeysRequested(void)
 {
-  return REQUESTED_SECURITY_KEYS;
+  return REQUESTED_SECURITY_KEYS_SECURITY_KEY_NON_MASK;
 }
 
 /**
