@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.14.2
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: nguyen SF314-56, nguyen corp, LIC=IKAY6-DEHUI-FBUBI-6VB1I-SR479-UPXGN
+ 
+Tool Versions:
+Toolchain:       PK51 Prof. Developers Kit for SiLabs  Version: 9.54
+Toolchain Path:  C:\Keil_v5\C51\BIN
+C Compiler:      C51.exe V9.54
+Assembler:       AX51.exe V3.13.0.0
+Linker/Locator:  LX51.exe V4.66.41.0
+Library Manager: LIBX51.exe V4.30.1.0
+Hex Converter:   OHX51.exe V1.45.0.0
+CPU DLL:         
+Dialog DLL:       
+<h2>Project:</h2>
+C:\Users\SF314-56\Desktop\GitZm5202\SDK\ProductPlus\SwitchOnOff\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.uvproj
+Project File Date:  08/01/2021
+
+<h2>Output:</h2>
+Build target 'SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI'
+User command #1: E:/SDK/Tools/Make/make  --no-print-directory -- CHIP=ZW050x SENSOR_TYPE=NON_BATT RF=US COUNTRY=US LIB=slave_enhanced_232 TEST_INTERFACE=YES BOOTLOADER_ENABLED=1  BOOT=BOOTLOADER_ENABLED FREQUENCY=US UVISIONPREBUILD=1 BUILDDIR=build_prj ZW0x0x
+make[1]: Nothing to be done for `prerequisites'.
+compiling SwitchOnOff.c...
+SwitchOnOff.c(324): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(325): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(328): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(329): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(405): warning C259: 'parameter 1': different enumeration types
+SwitchOnOff.c(410): warning C259: 'parameter 1': different enumeration types
+linking...
+Program Size: data=242.7 xdata=17199 const=805 code=107998
+creating hex file from ".\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI_Rels\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.aof"...
+User command #1: E:/SDK/Tools/Make/make  --no-print-directory -- CHIP=ZW050x SENSOR_TYPE=NON_BATT RF=US COUNTRY=US LIB=slave_enhanced_232 TEST_INTERFACE=YES BOOTLOADER_ENABLED=1  BOOT=BOOTLOADER_ENABLED FREQUENCY=US UVISIONPOSTBUILD=1 BUILDDIR=build_prj ZW0x0x
+make[1]: Nothing to be done for `prerequisites'.
+make[1]: Nothing to be done for `depend'.
+Extended 8051/251 Object to Hex File Converter V1.45.0.0
+COPYRIGHT KEIL ELEKTRONIK GmbH 2000 - 2015
+GENERATING INTEL H386 FILE: .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota
+Fixbootcrc - Application start address 0x1800 (0)
+applicationFirmwareDescriptorOffset 0x7FB8
+0x73C5 CRC - Bank1  - Start 0x08000, Length 0x7F24
+0x7A51 CRC - Bank2  - Start 0x10000, Length 0x5D0A
+0x40BC CRC - Bank3  - Start 0x18000, Length 0x7034
+0xFCF0 CRC - Common - Start 0x01800, Length 0x67C4
+ApplicationCommonLength 0x7FC6
+E:\\SDK\\Tools\\HexTools\\srec_cat.exe .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota -intel -exclude 0x0 0x1800 -offset -0x1800 -o .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota.bin -binary
+C:\Users\SF314-56\Desktop\GitZm5202\SDK\Z-Wave\lib\otacompress\otacompress.exe .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota.bin .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota.bin.lz1
+E:\\SDK\\Tools\\HexTools\\srec_cat.exe  .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.ota.bin.lz1 -binary -o .\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.otz -intel -line-length=43
+".\build_prj\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_TI_Rels\SwitchOnOff_slave_enhanced_232_OTA_ZW050x_US_TI.aof" - 0 Error(s), 6 Warning(s).
+</pre>
+</body>
+</html>

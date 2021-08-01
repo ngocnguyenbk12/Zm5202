@@ -51,8 +51,11 @@
 #ifdef ZW_ISD51_DEBUG
 #include "ISD51.h"
 #endif
+
+
 #include <association_plus.h>
 #include <agi.h>
+#include <CommandClass.h>
 #include <CommandClassAssociation.h>
 #include <CommandClassAssociationGroupInfo.h>
 #include <CommandClassVersion.h>
@@ -65,6 +68,7 @@
 #include <CommandClassMultiChan.h>
 #include <CommandClassMultiChanAssociation.h>
 #include <zaf_version.h>
+#include <gpio_driver.h>
 
 /****************************************************************************/
 /*                      PRIVATE TYPES and DEFINITIONS                       */
@@ -81,6 +85,7 @@
  * @def ZW_DEBUG_MYPRODUCT_SEND_NL()
  * Transmits a newline to the debug port.
  */
+ 
 #ifdef ZW_DEBUG_APP
 #define ZW_DEBUG_MYPRODUCT_SEND_BYTE(data) ZW_DEBUG_SEND_BYTE(data)
 #define ZW_DEBUG_MYPRODUCT_SEND_STR(STR) ZW_DEBUG_SEND_STR(STR)
@@ -97,6 +102,16 @@
 
 
 
+#define Pin3 0x11
+#define Pin4 0x10
+#define Pin5 0x04
+
+typedef enum Blink_Mode
+{
+	Fast,
+	Slow
+} Blink_Mode;
+
 
 /**
  * Application events for AppStateManager(..)
@@ -108,7 +123,8 @@ typedef enum _EVENT_APP_
   EVENT_APP_REFRESH_MMI,
   EVENT_APP_OTA_HOST_WRITE_DONE,
   EVENT_APP_OTA_HOST_STATUS,
-  EVENT_APP_SMARTSTART_IN_PROGRESS
+  EVENT_APP_SMARTSTART_IN_PROGRESS,
+  EVENT_DEBUG 
 } EVENT_APP;
 
 
@@ -123,7 +139,8 @@ typedef enum _STATE_APP_
   STATE_APP_LEARN_MODE,
   STATE_APP_WATCHDOG_RESET,
   STATE_APP_OTA,
-  STATE_APP_OTA_HOST
+  STATE_APP_OTA_HOST,
+  STATE_DEBUG
 } STATE_APP;
 
 
@@ -266,8 +283,17 @@ void ZCB_OTAWrite(BYTE *pData, BYTE len);
 void LoadConfiguration(ZW_NVM_STATUS nvmStatus);
 void SetDefaultConfiguration(void);
 
-void ToggleLed(void);
+
 void RefreshMMI(void);
+
+void controlRelay(void);
+void delay1s(void);
+void delay1ms(void);
+void Blinkled(BYTE Pin,Blink_Mode Mode);
+void Fast_delay(void);
+void Slow_delay(void);
+void FastBlink(BYTE Pin);
+void Toggle(BYTE Pin);
 
 
 /**
@@ -289,13 +315,19 @@ ApplicationInitHW(SW_WAKEUP bWakeupReason)
   wakeupReason = bWakeupReason;
   /* hardware initialization */
   ZDP03A_InitHW(ZCB_eventSchedulerEventAdd);
-  SetPinIn(ZDP03A_KEY_1,TRUE);
-  SetPinIn(ZDP03A_KEY_2,TRUE);
+	
+	
+	
+// GPIO 
+	
+//	SetPinOut(Pin13);
+	SetPinOut(Pin3);
+	Led(Pin3,0);
+//  Led(Pin13 ,0);     
+	
+	SetPinIn(Pin4, TRUE);
+	SetPinIn(Pin5, TRUE);
 
-  SetPinOut(ZDP03A_LED_D1); /**< Learn mode indication*/
-  Led(ZDP03A_LED_D1,ON);
-  SetPinOut(ZDP03A_LED_D2);
-  Led(ZDP03A_LED_D2,ON);
   Transport_OnApplicationInitHW(bWakeupReason);
 
   return(TRUE);
@@ -316,12 +348,6 @@ ApplicationInitSW(ZW_NVM_STATUS nvmStatus)
 #ifndef ZW_ISD51_DEBUG
   ZW_DEBUG_INIT(1152);
 #endif
-
-  ZW_DEBUG_MYPRODUCT_SEND_STR("\r\nAppInitSW ");
-  ZW_DEBUG_MYPRODUCT_SEND_NUM(wakeupReason);
-  ZW_DEBUG_MYPRODUCT_SEND_NUM(nvmStatus);
-  ZW_DEBUG_MYPRODUCT_SEND_NL();
-
 #ifdef WATCHDOG_ENABLED
   ZW_WatchDogEnable();
 #endif
@@ -367,12 +393,29 @@ ApplicationTestPoll(void)
  */
 E_APPLICATION_STATE ApplicationPoll(E_PROTOCOL_STATE bProtocolState)
 {
+	static WORD i = 0;
   UNUSED(bProtocolState);
 
 #ifdef WATCHDOG_ENABLED
   ZW_WatchDogKick();
 #endif
-
+	if(i == 10000){
+	}
+	else{
+		if(!KeyGet(Pin4)){
+	Blinkled(Pin3, Fast);
+    ChangeState(STATE_APP_IDLE);        
+    ZCB_eventSchedulerEventAdd(EVENT_SYSTEM_LEARNMODE_START);
+		}
+  	if(!KeyGet(Pin5)){ 
+	Blinkled(Pin3, Slow);
+    	ChangeState(STATE_APP_IDLE);
+      ZCB_eventSchedulerEventAdd(EVENT_SYSTEM_RESET);
+  	}
+    if(i<=1000){
+  		++i;
+  	}
+		}
   TaskApplicationPoll();
 
   return E_APPLICATION_STATE_ACTIVE;
@@ -388,9 +431,7 @@ Transport_ApplicationCommandHandlerEx(
   BYTE cmdLength)
 {
   received_frame_status_t frame_status = RECEIVED_FRAME_STATUS_NO_SUPPORT;
-  ZW_DEBUG_MYPRODUCT_SEND_NL();
-  ZW_DEBUG_MYPRODUCT_SEND_STR("AppH");
-  ZW_DEBUG_MYPRODUCT_SEND_NUM(pCmd->ZW_Common.cmdClass);
+
 
   /* Call command class handlers */
   switch (pCmd->ZW_Common.cmdClass)
@@ -605,11 +646,6 @@ GetAppState(void)
 void
 AppStateManager(EVENT_APP event)
 {
-  ZW_DEBUG_MYPRODUCT_SEND_NL();
-  ZW_DEBUG_MYPRODUCT_SEND_STR("ASM e");
-  ZW_DEBUG_MYPRODUCT_SEND_NUM(event);
-  ZW_DEBUG_MYPRODUCT_SEND_STR("s");
-  ZW_DEBUG_MYPRODUCT_SEND_NUM(currentState);
 
   if(EVENT_SYSTEM_WATCHDOG_RESET == event)
   {
@@ -633,7 +669,7 @@ AppStateManager(EVENT_APP event)
     case STATE_APP_IDLE:
       if(EVENT_APP_REFRESH_MMI == event)
       {
-        Led(ZDP03A_LED_D1,OFF);
+//        Led(ZDP03A_LED_D1,OFF);
         RefreshMMI();
       }
 
@@ -646,11 +682,10 @@ AppStateManager(EVENT_APP event)
       {
         if (myNodeID)
         {
-          ZW_DEBUG_MYPRODUCT_SEND_STR("LEARN_MODE_EXCLUSION");
           ZW_NetworkLearnModeStart(E_NETWORK_LEARN_MODE_EXCLUSION_NWE);
         }
         else{
-          ZW_DEBUG_MYPRODUCT_SEND_STR("LEARN_MODE_INCLUSION");
+			gpio_SetPin(Pin3, TRUE);
           ZW_NetworkLearnModeStart(E_NETWORK_LEARN_MODE_INCLUSION);
         }
         ChangeState(STATE_APP_LEARN_MODE);
@@ -666,18 +701,11 @@ AppStateManager(EVENT_APP event)
         MemoryPutByte((WORD)&EEOFFSET_MAGIC_far, 1 + APPL_MAGIC_VALUE);
         ZW_TIMER_START(ZCB_ResetDelay, 50, 1); // 50 * 10 = 500 ms  to be sure.
       }
-
-      if(EVENT_KEY_B2_PRESS == event)
-      {
-        ZW_DEBUG_MYPRODUCT_SEND_STR("+ToggleLed ");
-        ToggleLed();
-      }
       break;
 
     case STATE_APP_LEARN_MODE:
       if(EVENT_APP_REFRESH_MMI == event)
       {
-        Led(ZDP03A_LED_D1,ON);
       }
 
       if((EVENT_KEY_B1_PRESS == event)||(EVENT_SYSTEM_LEARNMODE_END == event))
@@ -689,16 +717,12 @@ AppStateManager(EVENT_APP event)
 
       if(EVENT_SYSTEM_LEARNMODE_FINISH == event)
       {
-        ZW_DEBUG_MYPRODUCT_SEND_NL();
-        ZW_DEBUG_MYPRODUCT_SEND_STR("learn finish");
         ChangeState(STATE_APP_IDLE);
       }
       break;
 
     case STATE_APP_WATCHDOG_RESET:
       if(EVENT_APP_REFRESH_MMI == event){}
-      ZW_DEBUG_MYPRODUCT_SEND_NL();
-      ZW_DEBUG_MYPRODUCT_SEND_STR("STATE_APP_WATCHDOG_RESET");
       ZW_WatchDogEnable(); /*reset asic*/
       for (;;) {}
       break;
@@ -715,19 +739,14 @@ AppStateManager(EVENT_APP event)
        */
       if ( EVENT_APP_REFRESH_MMI == event)
       {
-        Led(ZDP03A_LED_D1,OFF);
         RefreshMMI();
       }
       if (EVENT_APP_OTA_HOST_WRITE_DONE == event)
       {
-        ZW_DEBUG_SEND_NL();
-        ZW_DEBUG_SEND_STR("EVENT_APP_OTA_HOST_WRITE_DONE");
         OtaHostFWU_WriteFinish();
       }
       if (EVENT_APP_OTA_HOST_STATUS == event)
       {
-        ZW_DEBUG_SEND_NL();
-        ZW_DEBUG_SEND_STR("EVENT_APP_OTA_HOST_STATUS");
 
       // we assume we always updated successfully
         userReboot = FALSE;
@@ -746,12 +765,6 @@ AppStateManager(EVENT_APP event)
 static void
 ChangeState(STATE_APP newState)
 {
-  ZW_DEBUG_MYPRODUCT_SEND_NL();
-  ZW_DEBUG_MYPRODUCT_SEND_STR("State changed: ");
-  ZW_DEBUG_MYPRODUCT_SEND_NUM(currentState);
-  ZW_DEBUG_MYPRODUCT_SEND_STR(" -> ");
-  ZW_DEBUG_MYPRODUCT_SEND_NUM(newState);
-
   currentState = newState;
 
   /**< Pre-action on new state is to refresh MMI */
@@ -766,9 +779,6 @@ PCB(ZCB_DeviceResetLocallyDone)(TRANSMISSION_RESULT * pTransmissionResult)
 {
   if (TRANSMISSION_RESULT_FINISHED == pTransmissionResult->isFinished)
   {
-    ZW_DEBUG_MYPRODUCT_SEND_NL();
-    ZW_DEBUG_MYPRODUCT_SEND_STR("DRLD");
-
     ZCB_eventSchedulerEventAdd((EVENT_APP) EVENT_SYSTEM_WATCHDOG_RESET);
   }
 }
@@ -782,13 +792,7 @@ PCB(ZCB_ResetDelay)(void)
       ASSOCIATION_GROUP_INFO_REPORT_PROFILE_GENERAL,
       ASSOCIATION_GROUP_INFO_REPORT_PROFILE_GENERAL_LIFELINE
   };
-  ZW_DEBUG_MYPRODUCT_SEND_NL();
-  ZW_DEBUG_MYPRODUCT_SEND_STR("Call locally reset");
-
   handleCommandClassDeviceResetLocally(&lifelineProfile, ZCB_DeviceResetLocallyDone);
-
-  ZW_DEBUG_MYPRODUCT_SEND_NL();
-  ZW_DEBUG_MYPRODUCT_SEND_STR("Delay");
 }
 
 #ifdef BOOTLOADER_ENABLED
@@ -850,27 +854,14 @@ PCB(ZCB_OTAWrite)(BYTE *pData, BYTE len)
   UNUSED(pData);
   if (STATE_APP_IDLE == GetAppState())
   {
-    ZW_DEBUG_MYPRODUCT_SEND_NL();
-    ZW_DEBUG_MYPRODUCT_SEND_STR("STATE_APP_OTA_HOST");
-
-    ChangeState(STATE_APP_OTA_HOST);
+	ChangeState(STATE_APP_OTA_HOST);
   }
   if (len)
   {
-    ZW_DEBUG_MYPRODUCT_SEND_STR("W ADR: 0x");
-    ZW_DEBUG_MYPRODUCT_SEND_NUM((BYTE)(adr>>8) & 0xFF);
-    ZW_DEBUG_MYPRODUCT_SEND_NUM((BYTE)(adr & 0x00FF));
-    ZW_DEBUG_MYPRODUCT_SEND_STR(" L: 0x");
-    ZW_DEBUG_MYPRODUCT_SEND_NUM(len);
-    ZW_DEBUG_MYPRODUCT_SEND_BYTE(':');
-
     adr += len;
     while(--len)
     {
-      ZW_DEBUG_MYPRODUCT_SEND_NUM(*pData++);
     }
-    ZW_DEBUG_MYPRODUCT_SEND_NL();
-    // set event write finish
     ZCB_eventSchedulerEventAdd(EVENT_APP_OTA_HOST_WRITE_DONE);
 
   }
@@ -1000,12 +991,9 @@ void
 handleApplBinarySwitchSet(CMD_CLASS_BIN_SW_VAL val, BYTE endpoint )
 {
   UNUSED(endpoint);
-  ZW_DEBUG_MYPRODUCT_SEND_NL();
-  ZW_DEBUG_MYPRODUCT_SEND_STR("handleApplBinarySwitchSet");
-  ZW_DEBUG_MYPRODUCT_SEND_NUM(val);
-
   onOffState = val;
   MemoryPutByte((WORD)&OnOffState_far, onOffState);
+  controlRelay();
   RefreshMMI();
 }
 
@@ -1016,9 +1004,7 @@ handleApplBinarySwitchSet(CMD_CLASS_BIN_SW_VAL val, BYTE endpoint )
 void
 SetDefaultConfiguration(void)
 {
-  ZW_DEBUG_MYPRODUCT_SEND_NL();
-  ZW_DEBUG_MYPRODUCT_SEND_BYTE('C');
-  ZW_DEBUG_MYPRODUCT_SEND_BYTE('d');
+
   onOffState = 0;
   /* Mark stored configuration as OK */
   MemoryPutByte((WORD)&OnOffState_far, onOffState);
@@ -1047,18 +1033,10 @@ LoadConfiguration(ZW_NVM_STATUS nvmStatus)
 #endif
   /* Check to see, if any valid configuration is stored in the EEPROM */
   magicValue = MemoryGetByte((WORD)&EEOFFSET_MAGIC_far);
-  ZW_DEBUG_MYPRODUCT_SEND_NL();
-  ZW_DEBUG_MYPRODUCT_SEND_BYTE('M');
-  ZW_DEBUG_MYPRODUCT_SEND_NUM(magicValue);
   if (APPL_MAGIC_VALUE == magicValue)
   {
-    loadStatusPowerLevel();
     /* There is a configuration stored, so load it */
     onOffState = MemoryGetByte((WORD)&OnOffState_far);
-    ZW_DEBUG_MYPRODUCT_SEND_NL();
-    ZW_DEBUG_MYPRODUCT_SEND_BYTE('C');
-    ZW_DEBUG_MYPRODUCT_SEND_BYTE('l');
-
     AssociationInit(FALSE);
   }
   else
@@ -1086,15 +1064,17 @@ LoadConfiguration(ZW_NVM_STATUS nvmStatus)
  * @brief Toggles LED state variable and refreshes MMI.
  */
 void
-ToggleLed(void)
+controlRelay(void)
 {
   if (onOffState)
   {
-    onOffState = 0;
+//    onOffState = 0;
+	gpio_SetPin(Pin3,OFF);
   }
   else
   {
-    onOffState = 0xff;
+ //   onOffState = 0xff;
+	gpio_SetPin(Pin3, ON);
   }
   RefreshMMI();
   MemoryPutByte((WORD)&OnOffState_far, onOffState);
@@ -1165,5 +1145,61 @@ BYTE ApplicationSecureKeysRequested(void)
 BYTE ApplicationSecureAuthenticationRequested(void)
 {
   return REQUESTED_SECURITY_AUTHENTICATION;
+}
+
+
+//*************************************** Timer **************************************
+
+void Fast_delay(void){
+		int time;
+	for(time = 0; time < 50; time++){
+		delay1ms();
+		}
+}
+void Slow_delay(void){
+		int time;
+	for(time = 0; time < 300; time++){
+		delay1ms();
+		}
+}
+
+void delay1s(void){
+	int time;
+	for(time =0; time <500; time++){
+		delay1ms();
+	}
+}
+void delay1ms(void)                          //định nghĩa hàm delay
+{
+                        TMOD=0x01;           //chọn timer0 chế độ 1 16Bit
+                        TL0=0xD5;                //nạp giá trị cho TL0
+                        TH0=0x97;               //nạp giá trị cho TH0
+                        TR0=1;                       //khởi động timer0
+                        while(!TF0){}           //vòng lặp kiểm tra cờ TF0
+                        TR0=0;                       //ngừng timer0
+                        TF0=0;                       //xóa cờ TF0
+}
+
+
+//**************************************** GPIO  ***********************************************
+
+void Blinkled(BYTE Pin,Blink_Mode Mode){
+	int i;
+	if(Mode == Fast){
+		for(i = 0; i < 5; i++){
+			gpio_SetPin(Pin, TRUE);
+			Fast_delay();
+			gpio_SetPin(Pin, FALSE);
+			Fast_delay();
+		}
+		}
+	if(Mode == Slow){
+		for(i = 0; i< 5; i++){
+			gpio_SetPin(Pin, TRUE);
+			Slow_delay();
+			gpio_SetPin(Pin, FALSE);
+			Slow_delay();
+			}
+		}
 }
 
